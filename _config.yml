@@ -1,0 +1,42 @@
+# Setup
+title:               밍밍이의 작업실
+tagline:             ''
+description:         ''
+url:                 https://mingportal0.github.io
+baseurl:             ''
+paginate:            5
+permalink:           pretty
+
+# About/contact
+author:
+  name:              노명진
+  url:               https://mingportal0.github.io
+  email:             mingportal0@gmail.com
+
+# Gems
+plugins:
+  - jekyll-paginate
+
+# Custom vars
+version:             0.1
+google_analytics_id: #UA-XXXX-Y
+
+# Tags
+collections:
+  tags:
+    output: true
+    permalink: /tags/:path/
+  categories:
+    output: true
+    permalink: /categories/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
+
+# kramdown
+kramdown:
+  input: GFM
