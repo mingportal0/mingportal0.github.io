@@ -12,6 +12,7 @@ comment: yes
 ### 1.체크인 & 체크아웃
 
 + 시작
+  
   + git init
 + 업데이트
   + git pull : 모든 변경 사항 업데이트
@@ -26,6 +27,7 @@ comment: yes
     + git checkout -t branch_name  : remote branch 그대로 local에 만듬
   + git switch branch_name : 브랜치 이동 (그 전에 작업하던 건 스태시에 있음. 스태시 신경써야 함.)
 + 변경사항 보기
+  
   + git status
 + 체크인
   + git add . : Stage Changes에 변경사항 모두(.)올림

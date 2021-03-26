@@ -30,7 +30,7 @@ Creo View Adaptor version :
 
 proe2pv version : Creo 3.0 M030 (13.2.30.38)
 
-![image-20210325155803494](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325155803494-1616747947725.png)
+![image-20210325155803494](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325155803494.png)
 
 
 
@@ -50,7 +50,7 @@ proe2pv version : Creo 3.0 M030 (13.2.30.38)
 
       Adaptor 6.0의 경우 Creo 4.0(아래 주석 3, 4 참고) ~ 6.0 까지 설치 가능함.
 
-      ![image-20210325164610810](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325164610810-1616748025240.png)
+      ![image-20210325164610810](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325164610810.png)
 
    3. Creo View Toolkits은 Web Toolkit, WebGL Toolkit 지원
 

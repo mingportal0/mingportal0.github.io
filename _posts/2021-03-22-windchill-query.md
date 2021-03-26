@@ -17,7 +17,7 @@ comment: yes
 
 보통 /jsp/classinfo.jsp를 직접 열면 볼 수 있다.
 
-![image-20210326142932438](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210326175912135.png)
+![image-20210326142932438](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210322175955625.png)
 
 
 

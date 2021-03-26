@@ -17,12 +17,12 @@ comment: yes
 
 ​		모델 및 보기 가능 항목 체크 후 확인
 
-![image-20210326182743731](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210326182743731.png)
+![image-20210326182743731](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154411682.png)
 
 ​	위치 확인 후 다음
 
-![image-20210326202512232](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210326202512232.png)
+![image-20210326202512232](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154615439.png)
 
 ​	여러가지 옵션이 있다.
 
-![image-20210326202527595](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210326202527595.png)
+![image-20210326202527595](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154705591.png)
