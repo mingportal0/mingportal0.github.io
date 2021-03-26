@@ -35,6 +35,11 @@
  */
 
 /* Prevent scroll on narrow devices */
+/* Prevent scroll on narrow devices */
+html,
+body {
+  overflow-x: hidden;
+}
 
 html {
   font-family: 'Open Sans', sans-serif;
