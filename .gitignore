@@ -41,9 +41,3 @@ validation-report.json
 # Folders to ignore
 node_modules
 bower_components
-
-# typora img folder
-img
-
-# config yml
-_config.yml
