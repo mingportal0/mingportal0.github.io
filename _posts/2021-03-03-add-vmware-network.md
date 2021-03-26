@@ -1,0 +1,33 @@
+---
+title: "VMWare Network 추가"
+layout: post
+date: 2021-03-03
+categories: computing
+tags: [computing, vmware]
+comment: yes
+---
+
+
+
+보통 vmware를 노트북에 설치하고 네트워크 설정을 브릿지로 하면 automatic이라 wifi 랜카드를 바라보게 된다.
+
+그러나 유선 랜카드로 쓰고 싶을 때 어떻게 할까..
+
+1. 네트워크 설정에서 기존에 브릿지 automatic으로 되어 있던 것을 무선 랜카드로 변경한다. (아래 사진은 모두 설정된 화면)
+
+![DaCapture_20210303-14150203](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/DaCapture_20210303-14150203.png)
+
+
+
+2. 네트워크 설정에서 add network를 해서 유선 랜카드용을 새로 만든다.
+
+3. vm settings에서 기존 네트워크 어댑터를 커스텀 - 무선으로 설정한다.
+4. add를 누르고 네트워크 어댑터를 추가한 후 커스텀-유선으로 설정한다.
+5. 이렇게 하면 자동으로 윈도우에서 인터넷에 연결된다.
+
+
+
+출처 - 출처에서는 리눅스-우분투 환경인 것 같다.
+
+https://m.blog.naver.com/PostView.nhn?blogId=ekthatkxkd&logNo=221539540004&proxyReferer=https:%2F%2Fwww.google.com%2F
+

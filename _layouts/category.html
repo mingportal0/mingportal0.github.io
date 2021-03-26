@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div id="cover" class="container"
+     {% if page.image %}style="background-image: url({{ page.image }});"{% endif %}>
+    <div>
+        <span class="headline">
+          <i class="fa fa-folder-open-o headline" aria-hidden="true"></i>
+          {{ page.title | default: page.name }}</span>
+        <hr>
+    </div>
+</div>
+
+<div id="content" class="container">
+    <div id="tag-content" role="main">
+        <ul id="post-list">
+            {% for post in site.posts %}
+                {% if post.categories contains page.name %}
+                    {% include item.html %}
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</div>
