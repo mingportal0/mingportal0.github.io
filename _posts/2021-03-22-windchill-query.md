@@ -25,7 +25,7 @@ comment: yes
 
 기본
 
-```
+```java
 //선언
 QuerySpec qs = new QuerySpec();
 
@@ -57,7 +57,7 @@ while(qr.hasMoreElements()) {
 
 DB에서 직접 쿼리 호출
 
-```
+```java
 List<Department> list = new ArrayList<>();		
 MethodContext methodcontext = null;
 WTConnection wtconnection = null;
@@ -110,7 +110,7 @@ try {
 
 ### CompoundQuerySpec
 
-```
+```java
 CompoundQuerySpec compound = new CompoundQuerySpec();
 		compound.setSetOperator(SetOperator.UNION_ALL);
 		

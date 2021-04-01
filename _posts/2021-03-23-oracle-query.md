@@ -14,7 +14,7 @@ B에 속하지 않은 A
 
 ![image-20210323171456994](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210323171456994.png)
 
-```
+```sql
 SELECT *                                           
 FROM (                                             
     SELECT *                                       

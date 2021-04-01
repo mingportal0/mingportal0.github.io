@@ -12,7 +12,7 @@ comment: yes
 
 ### Paging
 
-```
+```java
 String sessionId = StringUtil.checkNull((String) reqMap.get("sessionId"));
 	    
 PagingQueryResult result = null;

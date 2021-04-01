@@ -42,7 +42,7 @@ proe2pv version : Creo 3.0 M030 (13.2.30.38)
 
       https://www.ptc.com/en/support/article/CS236395
 
-      Windchill 11.0 M030 CPS16 의 경우 Adaptor 6.0까지 설치 가능하며 Adaptor 7.1을 설치하려면 11.0 M030 CPS20을 설치해야 함.
+      **Windchill 11.0 M030 CPS16 의 경우 Adaptor 6.0까지 설치 가능**하며 Adaptor 7.1을 설치하려면 11.0 M030 CPS20을 설치해야 함.
 
    2. Adaptor 6.0 지원 가능한 Creo 버전
 
@@ -58,118 +58,173 @@ proe2pv version : Creo 3.0 M030 (13.2.30.38)
 
       WebGL Toolkit은 지원한다.
 
-      
+2. 설치 S/W 확인
 
-2. 시스템 접속 정보 숙지
+   1. Creo Parametric 6.0
+   2. Creo View Adaptor 6.0
 
-3. 그 외 이슈 사항
+3. 시스템 접속 정보 숙지
 
-   1. VPS 변환 시 운영서버에서 Creo Toolkit 시작 오류 발생. -> 협의 필요
+4. 그 외 이슈 사항
+
+   1. VPS 변환 시 운영서버에서 Creo Toolkit 시작 오류 발생. 
 
 
 
 # Action
 
-### Application Server
+### 시스템 정보
 
-51 - VPSThread.java 내 소스 변경
+##### 1. Application Server
 
+​	51 - VPSThread.java 내 소스 변경
 
+##### 2. Worker Server
 
-### Worker Server
+​	53 - Creo 설치, Adaptor 설치, VPS 변환된 파일 위치
 
-53 - Creo 설치, Adaptor 설치 
+​	152(VPS) - Creo 설치, Adaptor 설치, VPS config 설정파일 및 실행 위치
 
-152(VPS) - Creo 설치, Adaptor 설치, VPS config 설정
+​	153 - Creo 설치, Adaptor 설치
 
-153 - Creo 설치, Adaptor 설치
-
-154 - Creo 설치, Adaptor 설치
+​	154 - Creo 설치, Adaptor 설치
 
 
 
 ### Adaptor 설치
 
+Creo 설치 후 진행한다.
+
 Creo View 6.0 Adaptors (MCAD, ECAD)_6-0-0-0_windows
 
 **설치 전** 
 
-- 서비스에 GS worker Deamon 있는 지 확인. (있으면 기존 것 삭제 후 진행.)
+- 서비스에 GS worker Deamon 있는 지 확인. (있으면 기존 것 삭제 후 진행하거나 그냥 진행하여도 덮어쓰기 됨.)
+- 참고) 서비스 제거 cmd.exe에서 workerdaemon -remove <port#>
 
 **설치**
 
-- **설치 대상**
-  - creo 6.0 축소판 생성기, worker 체크
+동의함 체크
 
-- **설치 디렉토리** 
-  - creo 설치 폴더 d:\\ptc\\creo_view_adaptors_6.0_ver
-  - worker deamon을 windows 서비스로 구성
-  - 서비스 설정에서 복구탭에서 서비스 다시시작으로 설정하면 좋다.
+![image-20210330155756819](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330155756819.png)
 
-**설치 후**
+**설치 대상**
 
-- workerDeamon 바탕화면에 등록됨.
+- creo 6.0 축소판 생성기, worker 체크
 
-- 서비스에 GS worker Deamon 등록됨.
+![image-20210330155828940](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330155828940.png)
+
+**설치 디렉토리** 
+
+- creo 설치 폴더 d:\\ptc\\creo_view_adaptors_6.0_ver
+
+![image-20210330155849325](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330155849325.png)
+
+worker deamon을 windows 서비스로 구성
+
+![image-20210330155904987](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330155904987.png)
+
+서비스 설정에서 복구탭에서 서비스 다시시작으로 설정하면 좋다.
+
+또한 일반탭에서 서비스 실행 파일 경로를 확인해 제대로 서비스가 만들어졌는지 확인할 수 있다.
+
+![image-20210329150454700](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329150454700.png)
 
 
 
 ### Config 셋업
 
-proe2pv_config.exe 실행 : 서버랑 윈칠 연결
+설치한 Creo View Adaptor의 bin 폴더 내 Proe2pv_config.exe 를 실행하여 설정한다.  역할은 Worker와 Windchill을 연결하는 것이다.
 
-기존 - proe_setup\adaptor.pvi 에 설치되어 있으면 참고
+기존에 설치되어 있었다면 proe_setup\adaptor.pvi에서 참고 가능.
 
-setup_directory : D:\\ptc\\creo_view_adaptors\proe_setup
+- Existing Configuration Setup Directory : 설치한 Adaptor 위치 확인
 
-start Command (proe 경로) : D:\\ptc\Creo 6.0\..\parametric.bat
+- Start Command : 설치한 Creo폴더 내Parametric\bin\parametric.bat
+- Version : Creo 버전 확인
+- Server Host : Windchill Host
+- Server Port : 5600
 
-Server Host : nhpdm.hyosung.com
-
-Server Port : 5600
-
-Setup 클릭
+Setup 클릭 후 옆에 Recipe Editor를 누르면 Recipe를 설정할 수 있다.
 
 
 
 ### Recipe 설정
 
-proe_setup\proe2pv.rcp
+역할은 출력물을 설정하는 것이다.
 
-Basic, Parameters, Advanced : ptc doc 확인
+기존에 설치되어 있었다면 proe_setup\proe2pv.rcp에서 참고 가능.
 
-Save 클릭
 
-서비스 종료를 위해 재시작
 
-안되면 둘 다 실행
+참고) Recipe 설정[http://support.ptc.com/help/creo/view/r6.0/en/index.html#page/creo_view_mcad_adapters%2FTheRecipe_Editor%2FD_The_Basic_Tab.html%23](http://support.ptc.com/help/creo/view/r6.0/en/index.html)
+
+
+
+Save 클릭 후 서비스 종료를 위해 OS를 재시작한다.
+
+서비스가 제대로 안 올라올 시 수동으로 올릴 때는 아래 2개를 실행한다.
 
 - obj\WorkerDeamon.exe
+
 - proe_setup\proeworker.bat
 
 
 
+### 작업자 에이전트 관리
+
+사이트 - 유틸리티 - 작업자 에이전트 관리
+
+구성을 클릭해 설정화면으로 이동한다.
+
+![image-20210329151158277](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151158277.png)
+
+작업자 추가를 클릭한다.
+
+![image-20210329151246513](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151246513.png)
+
+호스트, 데이터 유형 선택
+
+![image-20210330160404768](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160404768.png)
+
+작업자 위치 선택
+
+![image-20210329151409967](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151409967.png)
+
+실행 명령 입력 및 자동 시작 체크
+
+(로컬에서 실행을 체크하면 서비스가 자동으로 안올라올 수 있다.)
+
+![image-20210329153121517](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329153121517.png)
+
+포트 선택
+
+![image-20210329151459671](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151459671.png)
+
+공유폴더 경로
+
+WVS 작업모니터 - 다시 제출
+
+![image-20210330160453739](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160453739.png)
+
 ### 그 외
 
-WEB-INF\conf\wvs.properties
+WEB-INF\conf\wvs.properties 에서 worker.exe.whitelist.prefixex....
 
-worker.exe.whitelist.prefixex....
+2D, 3D, dwg 큐 따로 설정이 가능하다.
 
-2D, 3D, dwg 큐 따로 설정 가능
+이 후 Creo Pro-Standard를 설정한다
 
 
 
 ### 테스트
 
-WVS 작업모니터 - 다시 제출
-
 작업자 에이전트 관리 에서 빨간 깃발 안올라올 때
 
 - 왼쪽 깃발 : Creo 문제
-
 - 오른쪽 깃발 : Worker 문제
 
-
+![image-20210330160859711](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160859711.png)
 
 ### 이 후 Creo pro-standard 설정
 

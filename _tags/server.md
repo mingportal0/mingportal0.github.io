@@ -1,5 +1,5 @@
 ---
-title: server
-name: server
+title: security
+name: security
 ---
 
