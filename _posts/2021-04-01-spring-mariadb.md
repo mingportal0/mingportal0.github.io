@@ -2,7 +2,7 @@
 title: "Springboot와 Maria DB 연결"
 layout: post
 date: 2021-04-01
-categories: db
+categories: database
 tags: [database, mariadb, java, spring]
 comment: yes
 ---

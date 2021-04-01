@@ -2,7 +2,7 @@
 title: "오라클 DB 연습 문제"
 layout: post
 date: 2019-09-15
-categories: db
+categories: database
 tags: [oracle, database]
 comment: yes
 ---

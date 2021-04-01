@@ -2,7 +2,7 @@
 title: "Oracle Query"
 layout: post
 date: 2021-03-22
-categories: db
+categories: database
 tags: [database, oracle]
 comment: yes
 

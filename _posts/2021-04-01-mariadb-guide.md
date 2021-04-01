@@ -2,7 +2,7 @@
 title: "Maria DB 사용법"
 layout: post
 date: 2021-04-01
-categories: db
+categories: database
 tags: [database, mariadb]
 comment: yes
 ---
