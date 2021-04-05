@@ -29,7 +29,7 @@
 
       searchResults.innerHTML = appendString;
     } else {
-      searchResults.innerHTML = '<li>No results found</li>';
+      searchResults.innerHTML = '<h3>검색 결과가 없습니다..</h3>';
     }
   }
 
