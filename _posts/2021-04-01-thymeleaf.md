@@ -3,7 +3,7 @@ title: "Thymeleaf"
 layout: post
 date: 2021-04-01
 categories: java
-tags: [java, spring]
+tags: [java, spring, thymeleaf]
 comment: yes
 ---
 
@@ -57,7 +57,9 @@ html xmlns 태그 추가
 
 
 
-### 리스트 데이터 출력
+### th:each
+
+for문과 유사하게 작동된다.
 
 ```html
 <table id="userTable">
@@ -80,6 +82,108 @@ html xmlns 태그 추가
 
 
 
+### th:object, *{...}
+
+```html
+<form action="#" th:action="@{/user/saveUserAction}" th:object="${user}" method="post" class="register">
+	<div>
+		<label for="email">이메일</label>
+		<input type="text" th:field="*{email}" placeholder="test@naver.com" maxlength="20"/>
+	</div>
+</form>
+```
+
+*{...}를 써서 th:object에 선언된 객체의 필드를 쓸 수 있다.
+
+
+
+### #{...}
+
+message.properties에 정의된 변수를 보여줄 수 있다.
+
+참고 https://victorydntmd.tistory.com/340
+
+
+
+### @{...}
+
+URL을 표현할 때 쓰는 표현식
+
+```html
+<!-- Page-relative URL. 일반적인 상대 경로 URL  -->
+<a href="login.html" th:href="@{user/login.html}">login</a>
+
+<!-- Context-relative URL. context name이 URL 앞에 자동으로 붙어서 생성된다. -->
+<a href="login.html" th:href="@{/login.html}">login</a>
+
+<!-- Server-relative URL. 서버의 다른 context에 접근할 수 있다. -->
+<a href="login.html" th:href="@{~/other/login.html}">login</a>
+
+<!-- Protocol-relative URL. -->
+<a href="login.html" th:href="@{//www.other.com/login.html}">login</a>
+
+<!-- '/gtvg/order/details?orderId=3'을 생성. URL 파라메터로 사용됨. -->
+<a href="details.html" th:href="@{/order/details(orderId=${o.id})}">view</a>
+
+<!-- '/gtvg/order/3/details'를 생성. orderId를 local변수로 사용하여 URL path를 생성. -->
+<a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
+```
+
+
+
+### th:text
+
+화면에 값을 출력할 때 사용한다.
+
+
+
+### th:field
+
+form 태그의 th:object로 지정한 객체와 같이 매핑되어 컨트롤러에서 @ResponseBody로 객체로 받을 떄 사용할 수 있다.
+
+
+
+### th:if
+
+조건문처럼 사용한다.
+
+```
+<div th:if="${false}">
+	<p>에러 발생</p>
+</div>
+```
+
+
+
+### th:errors
+
+조건문처럼 사용한다.
+
+```
+<p th:errors=*{pwCheck}>비밀번호가 일치하지 않습니다.</p>
+```
+
+
+
+### th:action
+
+form태그에서 action="#"와 같이 사용한다.
+
+```html
+<form action="#" th:action="@{/user/saveUserAction}" th:object="${user}" method="post" class="register">
+	<div>
+		<label for="email">이메일</label>
+		<input type="text" th:field="*{email}" placeholder="test@naver.com" maxlength="20"/>
+	</div>
+</form>
+```
+
+
+
+
+
 참고
 
 https://yulfsong.tistory.com/97
+
+https://cyberx.tistory.com/132
