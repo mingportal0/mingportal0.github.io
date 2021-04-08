@@ -47,9 +47,12 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   color: #313131;
   letter-spacing: -.025rem;
+}
+h6 {
+  font-weight: 400;
 }
 
 
@@ -116,9 +119,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 48em) {
-  .masthead-title {
-    text-align: center;
-  }
   .masthead-title small {
     display: none;
   }
@@ -749,11 +749,11 @@ hr {
 .search-container {
   float: right;
 }
-.search-input {
+.search-input .content-search-input {
   padding: 3px;
   font-size: 16px;
 }
-.search-button {
+.search-button .content-search-button {
   float: right;
   margin-top: 3px;
   padding: 4px 8px;
@@ -762,6 +762,15 @@ hr {
   border: none;
   cursor: pointer;
 }
-.search-button:hover{
+.search-button:hover .content-search-button:hover{
   color:rgb(190, 190, 190);
+}
+@media (max-width: 897px) {
+  .search-input{
+    display: none;
+  }
+  .search-button {
+    margin-top: 0px;
+    font-size: 10px;
+  }
 }

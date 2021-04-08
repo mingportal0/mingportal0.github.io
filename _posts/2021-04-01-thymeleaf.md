@@ -80,6 +80,15 @@ for문과 유사하게 작동된다.
 </table>
 ```
 
+또한, userStat 이라는 변수를 주어서 다음과 같은 필드를 사용할 수 있다.
+
+1. userStat .index : 0부터 시작하는 index.
+2. userStat .count : 1부터 시작하는 index.
+3. userStat .size : 리스트의 사이즈
+4. userStat .current : 현재 index의 변수
+5. userStat .event : 짝수 여부 (iterStat.odd : 홀수 여부) 
+6. userStat .first : 처음 여부 (iterStat.last : 마지막 여부)
+
 
 
 ### th:object, *{...}
@@ -93,13 +102,13 @@ for문과 유사하게 작동된다.
 </form>
 ```
 
-*{...}를 써서 th:object에 선언된 객체의 필드를 쓸 수 있다.
+*{...}를 써서 `th:object`에 선언된 객체의 필드를 쓸 수 있다.
 
 
 
 ### #{...}
 
-message.properties에 정의된 변수를 보여줄 수 있다.
+`message.properties`에 정의된 변수를 보여줄 수 있다.
 
 참고 https://victorydntmd.tistory.com/340
 
@@ -135,11 +144,20 @@ URL을 표현할 때 쓰는 표현식
 
 화면에 값을 출력할 때 사용한다.
 
+문자를 결합할 때 '|'를 사용할 수 있다.
+
+```html
+<span> th:text="'Welcome to our app, ' + ${user.name} + '!'|"></span>
+<span> th:text="|Welcome to our app, ${user.name}!|"></span>
+```
+
+
+
 
 
 ### th:field
 
-form 태그의 th:object로 지정한 객체와 같이 매핑되어 컨트롤러에서 @ResponseBody로 객체로 받을 떄 사용할 수 있다.
+form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤러에서 `@ResponseBody`로 객체로 받을 떄 사용할 수 있다.
 
 
 
@@ -162,6 +180,30 @@ form 태그의 th:object로 지정한 객체와 같이 매핑되어 컨트롤러
 ```
 <p th:errors=*{pwCheck}>비밀번호가 일치하지 않습니다.</p>
 ```
+
+
+
+### th:switch, th:case
+
+```html
+<div th:switch="${user.role}">
+	<p th:case="'admin'">Administrator</p>
+	<p th:case="#{roles.manager}">manager</p>
+	<p th:case="*">Administrator</p>
+</div>
+```
+
+
+
+### th:remove
+
+태그를 제거할 때 사용한다.
+
+- all : 해당 태그와 모든 하위 태그 제거
+- body : 해당 태그를 제거하지 않고 모든 자식 태그를 제거
+- tag : 해당 태그를 제거하고 자식 태그는 제거하지 않음.
+- all-but-first : 자식 태그 중 첫번째를 제외한 모든 태그 제거
+- none : 제거하지 않는다.
 
 
 

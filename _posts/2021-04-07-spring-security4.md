@@ -19,7 +19,7 @@ public interface UserRepository extends JpaRepository<MUser, Long>{
 }
 ```
 
-JpaRepository에서는 Optional<MUser> findByEmail(String email) 로 작성된 메소드를 추론해 select * from MUSER where email = ? 와 같은 역할을 하는 Read 메소드를 만들어준다. (실제 로그를 보면 좀 더 긴 SQL문이지만 맥락은 이렇다.)
+JpaRepository에서는 `Optional<MUser> findByEmail(String email)` 로 작성된 메소드를 추론해 `select * from MUSER where email = ?` 와 같은 역할을 하는 Read 메소드를 만들어준다. (실제 로그를 보면 좀 더 긴 SQL문이지만 맥락은 이렇다.)
 
 
 

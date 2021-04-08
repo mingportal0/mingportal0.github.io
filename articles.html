@@ -29,7 +29,8 @@ title: Articles
 </div>
 <hr>
 <div>
-  <h2>Tag</h2>
+  <h1>Tag</h1>
+  <br>
   {% for tag in site.tags %}
     {% assign tag_size = site.posts | where_exp: 'post', 'post.tags contains tag.name' | size %}
     <a href="/tags/{{ tag.slug }}" class="tag tag-{{ tag.name }}">

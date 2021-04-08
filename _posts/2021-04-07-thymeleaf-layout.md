@@ -38,7 +38,7 @@ comment: yes
 
 ### commonFooter.html
 
-<html xmlns:th="http://www.thymeleaf.org">는 footer에만 추가하였다.
+`<html xmlns:th="http://www.thymeleaf.org">`는 footer에만 추가하였다.
 
 ```html
 <!DOCTYPE html>
@@ -89,9 +89,9 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 라고 해야 해당 ht
 </html>
 ```
 
-xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"  를 선언해야 레이아웃을 쓸 수 있다.
+`xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"`  를 선언해야 레이아웃을 쓸 수 있다.
 
-layout:decorator="layout/defaultLayout 적용할 레이아웃을 지정한다.
+`layout:decorator="layout/defaultLayout` 적용할 레이아웃을 지정한다.
 
 
 
