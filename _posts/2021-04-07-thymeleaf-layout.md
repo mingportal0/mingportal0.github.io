@@ -3,7 +3,7 @@ title: "Thymeleaf Layout"
 layout: post
 date: 2021-04-07
 categories: java
-tags: [java, spring, thymeleaf]
+tags: [java, spring, thymeleaf, layout]
 comment: yes
 ---
 
