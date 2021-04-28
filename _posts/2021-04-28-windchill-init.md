@@ -11,7 +11,7 @@ comment: yes
 
 ### 아키텍쳐 구조
 
-![image-20210428171947005](C:\Users\mjroh\Pictures\typora\image-20210428171947005.png)
+![image-20210428171947005](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210428171947005.png)
 
 - 위치
   1. Apache : `<Windchill_Directory>\HTTPServer`
