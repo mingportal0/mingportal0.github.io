@@ -4,5 +4,6 @@ title: About
 ---
 
 <p class="message">
-  공사중..
+  Author : Myungjin Roh
+  GitHub : https://github.com/mingportal0?tab=repositories
 </p>
