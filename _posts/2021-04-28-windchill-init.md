@@ -1,7 +1,7 @@
 ---
 title: "Windchill 구조"
 layout: post
-date: 2021-03-24
+date: 2021-04-28
 categories: windchill
 tags: [windchill]
 comment: yes
