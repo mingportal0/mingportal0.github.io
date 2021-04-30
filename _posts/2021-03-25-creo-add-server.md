@@ -19,7 +19,7 @@ comment: yes
 
 서버 - 새 서버 등록
 
-![image-20210326182725578](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154018511.png)
+![image-20210430094945263](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094945263.png)
 
 서버이름과 서버도메인명을 입력하고 체크하면 윈칠 인증창이 뜸. 인증 후 서버 등록이 완료됨.
 

@@ -1,5 +1,5 @@
 ---
-title: "Creo 서버 등록"
+title: "Creo 체크인"
 layout: post
 date: 2021-03-25
 categories: windchill
@@ -21,8 +21,9 @@ comment: yes
 
 ​	위치 확인 후 다음
 
-![image-20210326202512232](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154615439.png)
+![image-20210430095032631](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430095032631.png)
 
 ​	여러가지 옵션이 있다.
 
-![image-20210326202527595](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210325154705591.png)
+![image-20210430095107413](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430095107413.png)
+

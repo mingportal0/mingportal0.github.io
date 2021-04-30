@@ -185,27 +185,27 @@ Save 클릭 후 서비스 종료를 위해 OS를 재시작한다.
 
 호스트, 데이터 유형 선택
 
-![image-20210330160404768](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160404768.png)
+![image-20210430094442790](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094442790.png)
 
 작업자 위치 선택
 
-![image-20210329151409967](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151409967.png)
+![image-20210430094228210](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094228210.png)
 
 실행 명령 입력 및 자동 시작 체크
 
 (로컬에서 실행을 체크하면 서비스가 자동으로 안올라올 수 있다.)
 
-![image-20210329153121517](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329153121517.png)
+![image-20210430094316884](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094316884.png)
 
 포트 선택
 
-![image-20210329151459671](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210329151459671.png)
+![image-20210430094349625](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094349625.png)
 
 공유폴더 경로
 
 WVS 작업모니터 - 다시 제출
 
-![image-20210330160453739](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160453739.png)
+![image-20210430094517893](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430094517893.png)
 
 ### 그 외
 
@@ -224,7 +224,7 @@ WEB-INF\conf\wvs.properties 에서 worker.exe.whitelist.prefixex....
 - 왼쪽 깃발 : Creo 문제
 - 오른쪽 깃발 : Worker 문제
 
-![image-20210330160859711](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210330160859711.png)
+![image-20210430093946766](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210430093946766.png)
 
 ### 이 후 Creo pro-standard 설정
 
