@@ -24,7 +24,7 @@
         var item = store[results[i].ref];
         appendString += '<div class="search-result"><a href="' + item.url + '"><h3>' + item.title + '</h3></a>';
         appendString += '<div class="post-description"><small>' + item.content.substring(0, 150) + '...</small></div>';
-        appendString += '</div>'
+        appendString += '</div><hr>'
       }
 
       searchResults.innerHTML = appendString;

@@ -23,15 +23,15 @@ xconf 파일 내용
 
 ### 명령어
 
-- xconfmanager -h : help
+- `xconfmanager -h` : help
 
-- xconfmanager -d <property_names> : property_name 에 대한 정보를 본다.
+- `xconfmanager -d <property_names>` : property_name 에 대한 정보를 본다.
 
-  ​	ex) xconfmanager -d product.context.name
+  ​	ex) `xconfmanager -d product.context.name`
 
-- xconfmanager -s <property_name>=<property_value> -t <property_file> -p : property_name 의 value를 변경하고 targetFile(properties 파일)의 value를 변경한다.
+- `xconfmanager -s <property_name>=<property_value> -t <property_file> -p` : property_name 의 value를 변경하고 targetFile(properties 파일)의 value를 변경한다.
 
-  ​	ex) xconfmanager -s product.context.name=E3PS -t codebase\com\e3ps\eSolution.properties -p
+  ​	ex) `xconfmanager -s product.context.name=E3PS -t codebase\com\e3ps\eSolution.properties -p`
 
-- xconfmanager -p : 모든 xconf 변경 내용 properties에 적용.
+- `xconfmanager -p` : 모든 xconf 변경 내용 properties에 적용.
 

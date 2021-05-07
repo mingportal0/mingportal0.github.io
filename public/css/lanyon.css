@@ -34,17 +34,34 @@
  * Update the foundational and global aspects of the page.
  */
 
-/* Prevent scroll on narrow devices */
+ * {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 /* Prevent scroll on narrow devices */
 html,
 body {
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  color: #515151;
+  background-color: #fff;
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
 }
 
 html {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
 }
-
+@media (max-width: 897px) {
+  html {
+    font-size: 10px;
+  }
+}
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Open Sans', sans-serif;
   font-weight: 600;
@@ -325,6 +342,10 @@ a.sidebar-nav-item:focus {
   margin-top: 0;
   margin-bottom: 16px;
 }
+.page-title {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
 
 /* Meta data line below post title */
 .post-date {
@@ -332,6 +353,7 @@ a.sidebar-nav-item:focus {
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
+  padding-bottom: 10px;
 }
 
 /* Related posts */
@@ -692,7 +714,7 @@ a.pagination-item:hover {
 
 /* headline */
 .headline {
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 900;
 }
 
