@@ -1,8 +1,8 @@
-.github-icon {
+.sidebar-icons {
     display:inline;
     width: 15px;
     height: 15px;
-    margin: 0;
+    margin: 0 2px 0 0;
 }
 wc {
     color:#eee;
