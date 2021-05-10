@@ -35,15 +35,15 @@ comment: yes
 ```
 div에 주면 2초에 걸쳐 변화가 일어난다.
 
-<iframe height="201" style="width: 100%;" scrolling="no" title="transition1" src="https://codepen.io/mingportal0/embed/rNyVZeZ?height=201&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/mingportal0/pen/rNyVZeZ'>transition1</a> by mingportal0
+<iframe height="208" style="width: 100%;" scrolling="no" title="vYxOvBB" src="https://codepen.io/mingportal0/embed/vYxOvBB?height=208&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/mingportal0/pen/vYxOvBB'>vYxOvBB</a> by mingportal0
   (<a href='https://codepen.io/mingportal0'>@mingportal0</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 <br>
 그러나 div:hover에 주면 mouseover 할 때는 반영되지만 mouseleave 할 때는 반영되지 않는다.
 
-<iframe height="201" style="width: 100%;" scrolling="no" title="transition1" src="https://codepen.io/mingportal0/embed/rNyVZeZ?height=201&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
-  See the Pen <a href='https://codepen.io/mingportal0/pen/rNyVZeZ'>transition1</a> by mingportal0
+<iframe height="212" style="width: 100%;" scrolling="no" title="ZEeGVEx" src="https://codepen.io/mingportal0/embed/ZEeGVEx?height=212&theme-id=light&default-tab=result" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/mingportal0/pen/ZEeGVEx'>ZEeGVEx</a> by mingportal0
   (<a href='https://codepen.io/mingportal0'>@mingportal0</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
