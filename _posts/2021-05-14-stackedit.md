@@ -14,8 +14,11 @@ comment: yes
 하지만 StackEdit은 구글 아이디로 접속해 바로 포스트를 작성할 수 있고 깃허브의 _post 폴더에 Synchoronize만 해두면 편집할 때마다 바로바로 깃허브에 commit이 되서 정말 간편하였다.
 
 ### 단점
+#### 1. 이미지 삽입
 그러나 포스트에 이미지를 넣는 것은 Typora가 더 편리한 것 같다. 이 부분은 StackEdit을 사용하면서 천천히 고민해보아야 할 것 같다.
 (Typora에서 클립보드에 있는 이미지를 불여넣기하면 바로 깃허브에 커밋되도록하는 기능이 있다.)
+#### 2. 글 작성
+Typora에서는 마크다운 문법에 따라 자동으로 해주는 것들이 있고 단축키를 사용하면 ㄷ
 
 1. 해결법
    구글 포토 이미지 테스트
@@ -24,7 +27,7 @@ comment: yes
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NjAzMDgwMSwxMDQ3NDAwNDI2LDEzNj
-U2Mjc0MiwtMjAzNjk4ODg0OCw0NDkyODA5NTksLTE0ODc3MzYx
-OTQsLTE5MjY4NDEyNzNdfQ==
+eyJoaXN0b3J5IjpbNzIzMTM0NTY1LDEwNDc0MDA0MjYsMTM2NT
+YyNzQyLC0yMDM2OTg4ODQ4LDQ0OTI4MDk1OSwtMTQ4NzczNjE5
+NCwtMTkyNjg0MTI3M119
 -->
