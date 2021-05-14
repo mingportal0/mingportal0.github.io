@@ -9,10 +9,11 @@ comment: yes
 ### Hello, StackEdit!!
 
 블로그 포스트 작성용으로 써보려고 테스트하였는데 생각보다 더 쓸만한 마크다운 에디터인 것 같다.
-기존에는 Typora를 썼었는데 
+기존에는 Typora를 썼었는데 데스크탑, 노트북 등 여러 기기에서 포스트를 쓰려다 보니 일일히 깃허브에 있는 것을 pull해야하는 번거러움이 있었다.
+
+하지만 StackEdit은 깃허브의 _post 폴더에 Synchoronize
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyMjQ4MzQ4MDEsLTE5MjY4NDEyNzNdfQ
-==
+eyJoaXN0b3J5IjpbLTY4MjU2NDQyNiwtMTkyNjg0MTI3M119
 -->
