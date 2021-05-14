@@ -6,9 +6,9 @@ categories: daily
 tags: [daily]
 comment: yes
 ---
-### Hello, stackEdit!!
+### Hello, StackEdit!!
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA5NTcwMDUxOV19
+eyJoaXN0b3J5IjpbLTE5MjY4NDEyNzNdfQ==
 -->
