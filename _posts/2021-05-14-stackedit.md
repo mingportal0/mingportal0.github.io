@@ -1,12 +1,11 @@
 ---
-title: "StackEdit test"
+title: "Hello, StackEdit!!"
 layout: post
 date: 2021-05-14
 categories: daily
 tags: [daily]
 comment: yes
 ---
-### Hello, StackEdit!!
 
 ### 장점
 블로그 포스트 작성용으로 써보려고 테스트하였는데 생각보다 더 쓸만한 마크다운 에디터인 것 같다.
@@ -25,7 +24,7 @@ comment: yes
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA0NzQwMDQyNiwxMzY1NjI3NDIsLTIwMz
-Y5ODg4NDgsNDQ5MjgwOTU5LC0xNDg3NzM2MTk0LC0xOTI2ODQx
-MjczXX0=
+eyJoaXN0b3J5IjpbMTY2NjAzMDgwMSwxMDQ3NDAwNDI2LDEzNj
+U2Mjc0MiwtMjAzNjk4ODg0OCw0NDkyODA5NTksLTE0ODc3MzYx
+OTQsLTE5MjY4NDEyNzNdfQ==
 -->
