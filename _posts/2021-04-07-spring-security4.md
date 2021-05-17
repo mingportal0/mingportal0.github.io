@@ -1,5 +1,5 @@
 ---
-title: "Spring Security (4/4)"
+title: "Spring Security 4"
 layout: post
 date: 2021-04-07
 categories: java
@@ -59,3 +59,6 @@ UserDetailsService를 구현하면 loadUserByUsername를 오버라이드해야 �
 
 https://galid1.tistory.com/700?category=791456
 
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTE4MjM2MDQ1NDldfQ==
+-->
