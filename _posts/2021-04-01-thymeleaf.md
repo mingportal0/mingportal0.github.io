@@ -74,7 +74,7 @@ for문과 유사하게 작동된다.
 		<tr th:each="user : ${userList}">
 			<td th:text="${user.email}">email</td>    
 			<td th:text="${user.name}">name</td>
-			<td th:text="${user.createStamp}">createStamp</td>
+			<td th:text="${user.create_stamp}">createStamp</td>
 		</tr>
 	</tbody>
 </table>
@@ -229,3 +229,6 @@ form태그에서 action="#"와 같이 사용한다.
 https://yulfsong.tistory.com/97
 
 https://cyberx.tistory.com/132
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTgwMjc0NDMxMV19
+-->
