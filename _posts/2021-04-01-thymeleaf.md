@@ -74,7 +74,7 @@ for문과 유사하게 작동된다.
 		<tr th:each="user : ${userList}">
 			<td th:text="${user.email}">email</td>    
 			<td th:text="${user.name}">name</td>
-			<td th:text="${user.create_stamp}">createStamp</td>
+			<td th:text="${user.createStamp}">createStamp</td>
 		</tr>
 	</tbody>
 </table>
@@ -230,5 +230,5 @@ https://yulfsong.tistory.com/97
 
 https://cyberx.tistory.com/132
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgwMjc0NDMxMV19
+eyJoaXN0b3J5IjpbLTcwNjk3NDM0NCwtODAyNzQ0MzExXX0=
 -->
