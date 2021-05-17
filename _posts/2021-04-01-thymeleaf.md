@@ -65,6 +65,7 @@ for문과 유사하게 작동된다.
 <table id="userTable">
 	<thead>
 		<tr>
+			<th>No</th>
 			<th>Email</th>
 			<th>Name</th>
 			<th>CreateDate</th>
@@ -72,9 +73,10 @@ for문과 유사하게 작동된다.
 	</thead>
 	<tbody>
 		<tr th:each="user : ${userList}">
-			<td th:text="${user.email}">email</td>    
-			<td th:text="${user.name}">name</td>
-			<td th:text="${user.createStamp}">createStamp</td>
+			<td th:text="${userStat.count}"></td>    
+			<td th:text="${user.email}"></td>    
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.createStamp}"></td>
 		</tr>
 	</tbody>
 </table>
@@ -230,5 +232,6 @@ https://yulfsong.tistory.com/97
 
 https://cyberx.tistory.com/132
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc1Njk0OTM3MCwtODAyNzQ0MzExXX0=
+eyJoaXN0b3J5IjpbLTI5OTAyMzg1MSwtNzU2OTQ5MzcwLC04MD
+I3NDQzMTFdfQ==
 -->
