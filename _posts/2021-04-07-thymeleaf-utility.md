@@ -67,6 +67,7 @@ comment: yes
 <div th:text="${#strings.substringBefore(string,'myungjin')}"></div>
 <div th:text="${#strings.replace(string,'myung','mmmm')}"></div>
 <div th:text="${#strings.length(string)}"></div>
+<div th:text="${#strings.defaultString(null, 'default')}"></div>
 ```
 
 
@@ -105,6 +106,8 @@ comment: yes
 
   11
 
+  default
+
 
 
 참고
@@ -112,3 +115,6 @@ comment: yes
 https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#expression-utility-objects
 
 https://kim-jong-hyun.tistory.com/20
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbLTgxMDM5NDRdfQ==
+-->
