@@ -144,7 +144,7 @@ URL을 표현할 때 쓰는 표현식
 
 화면에 값을 출력할 때 사용한다.
 
-문자를 결합할 때 '|'를 사용할 수 있다.
+문자를 결합할 때 `|`를 사용할 수 있다.
 
 ```html
 <span> th:text="'Welcome to our app, ' + ${user.name} + '!'|"></span>
@@ -230,5 +230,5 @@ https://yulfsong.tistory.com/97
 
 https://cyberx.tistory.com/132
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTcwNjk3NDM0NCwtODAyNzQ0MzExXX0=
+eyJoaXN0b3J5IjpbLTIzMDIzNzk0NiwtODAyNzQ0MzExXX0=
 -->
