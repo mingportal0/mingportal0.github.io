@@ -1,5 +1,5 @@
 ---
-title: "Spring Security (1/4)"
+title: "Spring Security 1"
 layout: post
 date: 2021-03-30
 categories: java
@@ -119,3 +119,6 @@ public class LoginController {
 참고 글
 
 https://galid1.tistory.com/698?category=791456
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNzcxMDI4NzQ0XX0=
+-->
