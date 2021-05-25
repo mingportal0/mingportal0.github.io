@@ -21,9 +21,7 @@ comment: yes
 
 
 
-### Query
-
-기본
+### QuerySpec
 
 ```java
 //선언
@@ -50,59 +48,6 @@ while(qr.hasMoreElements()) {
    WTGroup group = (WTGroup) qr.nextElement();
    WTGroupData gData = new WTGroupData(group);
    list.add(gData);
-}
-```
-
-
-
-DB에서 직접 쿼리 호출
-
-```java
-List<Department> list = new ArrayList<>();		
-MethodContext methodcontext = null;
-WTConnection wtconnection = null;
-PreparedStatement st = null;
-ResultSet rs = null;
-
-try {
-	methodcontext = MethodContext.getContext();
-	wtconnection = (WTConnection) methodcontext.getConnection();
-	Connection con = wtconnection.getConnection();
-		
-	StringBuffer sb = new StringBuffer();
-	sb.append("			SELECT 								   											    ");
-	sb.append("				classnameA2A2 || ':' || idA2A2 OID 												");
-	sb.append("			FROM Department 																	");
-	sb.append("  			WHERE idA3parentReference = ? 												    ");
-	if(!isAdmin){
-		sb.append("  		AND isDisable = 0 															    ");
-	}
-	sb.append("			ORDER BY SORT	 															        ");
-	
-	st = con.prepareStatement(sb.toString());
-	st.setLong(1, CommonUtil.getOIDLongValue(root));
-		
-	rs = st.executeQuery();
-		
-	while(rs.next()) {
-		String oid = rs.getString("OID");
-		Department dept = (Department) CommonUtil.getObject(oid);
-		list.add(dept);
-	}
-			
-}catch(Exception e) {
-	throw new Exception(e);
-}finally {
-	if ( rs != null ) {
-   		rs.close();;
-    }
-    if ( st != null ) {
-        st.close();
-    }
-	if (DBProperties.FREE_CONNECTION_IMMEDIATE
-			&& !wtconnection.isTransactionActive()) {
-		MethodContext.getContext().freeConnection();
-	}
 }
 ```
 
@@ -155,5 +100,58 @@ CompoundQuerySpec compound = new CompoundQuerySpec();
 				compound.addComponent(doc);
 			}
 		}
+```
+
+
+
+### 일반 쿼리 호출
+
+```java
+List<Department> list = new ArrayList<>();		
+MethodContext methodcontext = null;
+WTConnection wtconnection = null;
+PreparedStatement st = null;
+ResultSet rs = null;
+
+try {
+	methodcontext = MethodContext.getContext();
+	wtconnection = (WTConnection) methodcontext.getConnection();
+	Connection con = wtconnection.getConnection();
+		
+	StringBuffer sb = new StringBuffer();
+	sb.append("			SELECT 								   											    ");
+	sb.append("				classnameA2A2 || ':' || idA2A2 OID 												");
+	sb.append("			FROM Department 																	");
+	sb.append("  			WHERE idA3parentReference = ? 												    ");
+	if(!isAdmin){
+		sb.append("  		AND isDisable = 0 															    ");
+	}
+	sb.append("			ORDER BY SORT	 															        ");
+	
+	st = con.prepareStatement(sb.toString());
+	st.setLong(1, CommonUtil.getOIDLongValue(root));
+		
+	rs = st.executeQuery();
+		
+	while(rs.next()) {
+		String oid = rs.getString("OID");
+		Department dept = (Department) CommonUtil.getObject(oid);
+		list.add(dept);
+	}
+			
+}catch(Exception e) {
+	throw new Exception(e);
+}finally {
+	if ( rs != null ) {
+   		rs.close();;
+    }
+    if ( st != null ) {
+        st.close();
+    }
+	if (DBProperties.FREE_CONNECTION_IMMEDIATE
+			&& !wtconnection.isTransactionActive()) {
+		MethodContext.getContext().freeConnection();
+	}
+}
 ```
 

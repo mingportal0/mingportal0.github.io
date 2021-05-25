@@ -1,5 +1,5 @@
 (function(document) {
-  console.log("ready");
+  //console.log("ready");
   var toggle = document.querySelector('.sidebar-toggle');
   var sidebar = document.querySelector('#sidebar');
   var checkbox = document.querySelector('#sidebar-checkbox');

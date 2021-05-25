@@ -1,5 +1,5 @@
 ---
-title: "Oracle Query"
+title: "Oracle MINUS"
 layout: post
 date: 2021-03-22
 categories: database
