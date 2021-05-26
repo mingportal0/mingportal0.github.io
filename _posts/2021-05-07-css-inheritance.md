@@ -1,5 +1,5 @@
 ---
-title: "CSS Float"
+title: "CSS "
 layout: post
 date: 2021-05-07
 categories: css
