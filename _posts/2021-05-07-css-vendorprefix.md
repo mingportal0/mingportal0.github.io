@@ -9,8 +9,6 @@ comment: yes
 
 
 
-### 상속
-
 CSS3 표준으로 확정되기 전에는 브라우저별 개발 중인 기능을 사용하려면 벤더 프리픽스를 사용해야 했다.
 
 | Browser            | Vendor Prefix |
