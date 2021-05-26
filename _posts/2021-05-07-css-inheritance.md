@@ -9,8 +9,6 @@ comment: yes
 
 
 
-### 상속
-
 모든 프로퍼티가 상속되는 것은 아니다.
 
 | property              | Inherit |
