@@ -1,5 +1,5 @@
 ---
-title: "CSS "
+title: "CSS 상속"
 layout: post
 date: 2021-05-07
 categories: css
