@@ -1,5 +1,5 @@
 ---
-title: "CSS 크기, 색상 단위"
+title: "크기, 색상 단위. px, color"
 layout: post
 date: 2021-04-10
 categories: css

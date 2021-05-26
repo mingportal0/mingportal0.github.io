@@ -1,5 +1,5 @@
 ---
-title: "CSS 위치 정의"
+title: "위치. Position"
 layout: post
 date: 2021-04-29
 categories: css

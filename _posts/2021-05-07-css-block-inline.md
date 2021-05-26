@@ -1,5 +1,5 @@
 ---
-title: "CSS block, inline, inline-block"
+title: "줄바꿈 여부. block 요소, inline 요소"
 layout: post
 date: 2021-05-07
 categories: css

@@ -1,5 +1,5 @@
 ---
-title: "CSS Selector"
+title: "선택자. Selector"
 layout: post
 date: 2021-04-08
 categories: css

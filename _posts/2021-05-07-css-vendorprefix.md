@@ -1,5 +1,5 @@
 ---
-title: "CSS Vendor Prefix"
+title: "브라우저별 기능. Vendor Prefix"
 layout: post
 date: 2021-05-07
 categories: css

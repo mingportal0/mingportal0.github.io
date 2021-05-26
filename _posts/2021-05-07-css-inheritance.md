@@ -1,5 +1,5 @@
 ---
-title: "CSS 상속"
+title: "상속. inherit"
 layout: post
 date: 2021-05-07
 categories: css

@@ -1,5 +1,5 @@
 ---
-title: "CSS Transition"
+title: "일정 기간의 변화. Transition"
 layout: post
 date: 2021-05-10
 categories: css
