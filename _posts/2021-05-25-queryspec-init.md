@@ -79,7 +79,7 @@ out.print(qs.toString());
 **sql**
 
 ```sql
-SELECT A0.* FROM wt.doc.WTDocument A0;
+SELECT A0.* FROM WTDocument A0;
 ```
 
 보면 `addClassList`했던 순서에 따라 A0로 alias가 매겨지는 것을 확인할 수 있다.
@@ -139,7 +139,7 @@ qs.appendWhere(
   **sql**
 
   ```sql
-  SELECT A0.* FROM wt.doc.WTDocument A0 
+  SELECT A0.* FROM WTDocument A0 
   WHERE A0.idA3D2iterationInfo = 11
   ```
 
@@ -166,7 +166,7 @@ qs.appendWhere(
   **sql**
 
   ```sql
-  SELECT A0.*,A1.* FROM wt.doc.WTDocument A0,wt.org.WTUser A1 
+  SELECT A0.*,A1.* FROM WTDocument A0, WTUser A1 
   WHERE A0.idA3D2iterationInfo <> A1.idA2A2
   ```
 
@@ -193,7 +193,7 @@ qs.appendWhere(
   **sql**
 
   ```sql
-  SELECT A0.* FROM wt.doc.WTDocument A0 
+  SELECT A0.* FROM WTDocument A0 
   WHERE A0.idA3D2iterationInfo IN (SELECT A0.idA2A2 FROM WTUser A0)
   ```
 
@@ -212,4 +212,60 @@ qs.appendWhere(
   1. SearchCondition(ClassAttribute, SearchCondition.LEFT_OUTER_JOIN, ClassAttribute)
 
   2. SearchCondition(ClassAttribute, SearchCondition.RIGHT_OUTER_JOIN, ClassAttribute)
+
+
+
+### 6. SQLFunction
+
+```java
+QuerySpec qs = new QuerySpec();
+int idxA = qs.appendClassList(WTDocument.class, false);
+ClassAttribute name = new ClassAttribute(WTDocument.class, WTDocument.TITLE, "A0");
+SQLFunction max = SQLFunction.newSQLFunction("UPPER", name);
+qs.appendSelect(max, false);
+```
+
+**sql**
+
+```sql
+SELECT UPPER(A0.title) FROM WTDocument A0
+```
+
+
+
+### 7. Sort
+
+```java
+QuerySpec qs = new QuerySpec();
+int idxA = qs.appendClassList(WTDocument.class, true);
+qs.appendOrderBy(new OrderBy(new ClassAttribute(WTDocument.class, WTDocument.TITLE), false), new int[] { idxA });
+```
+
+**sql**
+
+```sql
+SELECT A0.* FROM WTDocument A0 ORDER BY A0.title
+```
+
+
+
+### 8. Navigate
+
+```java
+WTPartMaster master = (WTPartMaster) CommonUtil.getObject("wt.part.WTPartMaster:1182143");
+QueryResult qr = PersistenceHelper.manager.navigate(master, "roleA", MasterACLWTUserLink.class);
+while(qr.hasMoreElements()){
+	WTUser doc = (WTUser) qr.nextElement();
+}
+```
+
+QueryResult로 받을 때 WTUser로 바로 받을 수 있다.
+
+**sql**
+
+```sql
+SELECT A1.* FROM MasterACLWTUserLink A0, WTUser A1
+WHERE A0.ida3a5 = A1.ida2a2
+AND A0.ida3b5 = '1182143'
+```
 
