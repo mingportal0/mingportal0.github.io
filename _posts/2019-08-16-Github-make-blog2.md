@@ -12,10 +12,10 @@ comment: yes
 그 이유는 깃허브에서 직접 수정하기에는 수정사항이 바로 적용되지 않기 때문에 불편하기 때문입니다.<br/>
 
 ### 1. 루비 설치
-[링크][http://jekyll-windows.juthilo.com/1-ruby-and-devkit]
+[링크](http://jekyll-windows.juthilo.com/1-ruby-and-devkit)
 
 ### 2. 깃허브 데스크탑 설치 & 로컬에 repository 만들기
-[링크][https://desktop.github.com/]
+[링크](https://desktop.github.com/)
 
 깃허브 데스크탑에서 'clone repository'를 한다.
 그러면 로컬에서 자신의 Repository를 수정할 수 있습니다.

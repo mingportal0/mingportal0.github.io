@@ -21,15 +21,16 @@ comment: yes
    STOMP(Streaming Text Oriented Messaging Protocol)
    - 토픽 구동 방식
    - stomp js lib이 있음.
-
 + ws:// 보다 wdd://을 사용함. 보안 때문에..
 + Full duplex, 2-way communicaion, Polling, Long Polling 이라서 계속 연결 유지
 + Client가 Server에 Handshake를 요청함 -> Bi-directional Messages -> One Side Closes channel(연결된 Session이 종료)
 
+
+
 ### 설치
 + pom.xml
-+ 
+
+
 
 ### 참고
-[https://www.youtube.com/watch?v=gQyRxPjssWg][https://www.youtube.com/watch?v=gQyRxPjssWg]
-[https://developer.mozilla.org/ko/docs/WebSockets][https://developer.mozilla.org/ko/docs/WebSockets]
+[https://www.youtube.com/watch?v=gQyRxPjssWg](https://www.youtube.com/watch?v=gQyRxPjssWg) [https://developer.mozilla.org/ko/docs/WebSockets](https://developer.mozilla.org/ko/docs/WebSockets)

@@ -116,6 +116,6 @@ public class LoginController {
 
 
 
-##### 참고 글
+### 참고 글
 
-[https://galid1.tistory.com/698?category=791456][https://galid1.tistory.com/698?category=791456]
+[https://galid1.tistory.com/698?category=791456](https://galid1.tistory.com/698?category=791456)

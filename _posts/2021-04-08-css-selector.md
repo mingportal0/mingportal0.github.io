@@ -224,6 +224,6 @@ p ~ ul { color: red; }
 
 
 
-##### 참고
+### 참고
 
-[https://poiemaweb.com/css3-selector][https://poiemaweb.com/css3-selector]
+[https://poiemaweb.com/css3-selector](https://poiemaweb.com/css3-selector)

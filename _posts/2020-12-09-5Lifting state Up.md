@@ -9,9 +9,9 @@ comment: yes
 
 
 
-[https://reactjs.org/docs/lifting-state-up.html][https://reactjs.org/docs/lifting-state-up.html]
+[https://reactjs.org/docs/lifting-state-up.html](https://reactjs.org/docs/lifting-state-up.html)
 
-BoilingVerdict
+### BoilingVerdict
 
 ```
 function BoilingVerdict(props) {
@@ -24,7 +24,7 @@ function BoilingVerdict(props) {
 
 
 
-컴포넌트
+### 컴포넌트
 
 ```
 class Calculator extends React.Component {

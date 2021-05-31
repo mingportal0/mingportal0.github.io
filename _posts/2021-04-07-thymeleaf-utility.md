@@ -110,9 +110,9 @@ comment: yes
 
 
 
-##### 참고
+### 참고
 
-[https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#expression-utility-objects][https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#expression-utility-objects]
+[https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#expression-utility-objects](https://www.thymeleaf.org/doc/tutorials/2.1/usingthymeleaf.html#expression-utility-objects)
 
-[https://kim-jong-hyun.tistory.com/20][https://kim-jong-hyun.tistory.com/20]
+[https://kim-jong-hyun.tistory.com/20](https://kim-jong-hyun.tistory.com/20)
 

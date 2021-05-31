@@ -7,37 +7,35 @@ tags: [server, apache]
 comment: yes
 ---
 
-{아파치가 설치된 경로}/httpd.conf 파일에서
+`{아파치가 설치된 경로}/httpd.conf` 파일에서
 
 
 
-log_config_module이 아래처럼 주석이 없는 것을 확인 후 (기본 설정이면 주석이 없다.)
+`log_config_module`이 아래처럼 주석이 없는 것을 확인 후 (기본 설정이면 주석이 없다.)
 
+````
 LoadModule log_config_module modules/mod_log_config.so
+````
 
 
 
-<IfModule log_config_module> 안에서
+`<IfModule log_config_module>`안에서
 
-<IfModule log_config_module>
-
-
-
-이렇게 되어있는 것을
-
-CustomLog "logs/access.log" common
-
-
+`CustomLog "logs/access.log" common` 라고 되어있는 것을
 
 이렇게 바꾸면 하루(86400초) 마다 파일이 새로 생성되고
 
+````
 CustomLog "|bin/rotatelogs.exe logs/%Y%m%d_access.log 86400" combined
+````
 
 
 
 이렇게 바꾸면 100MB 마다 파일이 새로 생성된다.
 
+```
 CustomLog "|bin/rotatelogs.exe logs/%Y%m%d_access.log 100M" combined
+```
 
 
 
@@ -47,7 +45,9 @@ Windows 운영체제에선 반드시 rotatelogs 다음에 **.exe** 를 붙여주
 
 
 
-출처: [https://floor5th.tistory.com/86][https://floor5th.tistory.com/86]
+### 참고
 
-출처: [https://bearpro.tistory.com/6][https://bearpro.tistory.com/6]
+[https://floor5th.tistory.com/86](https://floor5th.tistory.com/86)
+
+[https://bearpro.tistory.com/6](https://bearpro.tistory.com/6)
 

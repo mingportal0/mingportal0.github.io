@@ -43,7 +43,6 @@ CSS3 표준으로 확정되기 전에는 브라우저별 개발 중인 기능을
 
 
 
-##### 참고
+### 참고
 
-[https://poiemaweb.com/css3-inheritance-cascading][https://poiemaweb.com/css3-inheritance-cascading]
-
+[https://poiemaweb.com/css3-inheritance-cascading](https://poiemaweb.com/css3-inheritance-cascading)

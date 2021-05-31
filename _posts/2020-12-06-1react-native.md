@@ -9,24 +9,28 @@ comment: yes
 
 
 
-1. React-Native란?
-
-   [https://reactnative.dev/docs/getting-started][https://reactnative.dev/docs/getting-started]
+### React-Native란?
 
 + [React](https://reactjs.org/) 와 앱 플랫폼의 기본 기능을 사용하여 Android 및 iOS 애플리케이션을 빌드하기위한 오픈 소스 프레임 워크
 
   ![뷰라는 원자 적 요소를 기반으로 구축 된 Android 및 iOS 앱의 다이어그램.](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/diagram_ios-android-views.svg)
 
-2. 표기법
+
+
+### 표기법
 
 + camelCase
 + PascalCase
 + snake_case
 + kebab-case
 
-3. JSX 어트리뷰트는 hypen-case(kebab-case)로 작성해야 한다.
 
-4. 핵심 구성 요소
+
+### JSX 어트리뷰트는 hypen-case(kebab-case)로 작성해야 한다.
+
+
+
+### 핵심 구성 요소
 
 | 네이티브 UI 구성 요소 반응 | 웹 아날로그             | 기술                                                         |
 | :------------------------- | :---------------------- | :----------------------------------------------------------- |
@@ -36,7 +40,9 @@ comment: yes
 | `<ScrollView>`             | `<div>`                 | 여러 구성 요소 및보기를 포함 할 수있는 일반 스크롤 컨테이너  |
 | `<TextInput>`              | `<input type="text">`   | 사용자가 텍스트를 입력 할 수 있습니다.                       |
 
-5. 예제
+
+
+### 예제
 
 ```react-native
 import React from 'react';
@@ -71,4 +77,8 @@ export default App;
 ```
 
 
+
+### 참고
+
+[https://reactnative.dev/docs/getting-started](https://reactnative.dev/docs/getting-started)
 

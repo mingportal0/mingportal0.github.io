@@ -11,7 +11,7 @@ comment: yes
 
 ### 프로젝트 생성
 
-1. [https://start.spring.io][https://start.spring.io]에서 만들기
+1. [https://start.spring.io](https://start.spring.io)에서 만들기
 
 ![DaCapture_20210315-12004603](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/DaCapture_20210315-12004603.png)
 
@@ -67,7 +67,7 @@ Boot Dashboard에서 local\만든 프로젝트의 아이콘이 회색에서 초�
 - static : js, css, image 파일
 - META-INF : jar 파일
 
-![image-20210401164354341](C:\Users\mjroh\Pictures\typora\image-20210401164354341.png)
+![image-20210401164354341](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210401164354341.png)
 
 ### index.html 보기
 

@@ -81,6 +81,6 @@ z-index 수치가 클 수록 화면 앞에 위치한다. static 이외 요소만
 
 
 
-##### 참고
+### 참고
 
-[https://poiemaweb.com/css3-position][https://poiemaweb.com/css3-position]
+[https://poiemaweb.com/css3-position](https://poiemaweb.com/css3-position)

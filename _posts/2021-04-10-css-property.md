@@ -169,6 +169,6 @@ css에서 사용하는 대표적인 크기 단위는 px, em, %이다.
 
 
 
-##### 참고
+### 참고
 
-[https://poiemaweb.com/css3-units][https://poiemaweb.com/css3-units]
+[https://poiemaweb.com/css3-units](https://poiemaweb.com/css3-units)
