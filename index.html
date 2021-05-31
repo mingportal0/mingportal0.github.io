@@ -8,8 +8,15 @@ title: Home
   <div class="post">
     <h1 class="post-title">
       <a href="{{ post.url | absolute_url }}">
-        {{ post.title }}
+        {{ post.title}}
       </a>
+      {% assign nowunix = "now" | date: "%s" | integer  %}
+      {% assign posttime = post.date | date: "%s" | integer %}
+      {% assign diff = nowunix | minus: posttime %}
+      {% assign diffDays = diff | divided_by: 3600 | divided_by: 24 %}
+      {% if diffDays == 0 %}
+      <new>New</new>
+      {% endif %}
     </h1>
 
     <span class="post-date">{{ post.date | date_to_string }}</span>

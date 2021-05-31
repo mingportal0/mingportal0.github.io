@@ -7,3 +7,18 @@
 wc {
     color:#eee;
 }
+new{
+    background-color: rgb(19, 109, 194);
+    color: white;
+    padding: 2px 5px;
+    font-size: 12px;
+    line-height: 12px;
+    border-radius: 5px;
+}
+@media (max-width: 897px) {
+    new{
+      padding: 2px 3px;
+      font-size: 8px;
+      line-height: 8px;
+    }
+  }
