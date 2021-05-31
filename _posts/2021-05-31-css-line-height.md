@@ -29,6 +29,6 @@ line-height는 줄바꿈 높이를 정하는 속성이다.
 
 
 
+##### 참고
 
-참고
-https://www.codingfactory.net/10639
+[https://www.codingfactory.net/10639][https://www.codingfactory.net/10639]

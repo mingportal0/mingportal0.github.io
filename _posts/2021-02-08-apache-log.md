@@ -47,6 +47,7 @@ Windows 운영체제에선 반드시 rotatelogs 다음에 **.exe** 를 붙여주
 
 
 
-출처: https://floor5th.tistory.com/86 [블로그]
+출처: [https://floor5th.tistory.com/86][https://floor5th.tistory.com/86]
 
-출처: https://bearpro.tistory.com/6 [블로그]
+출처: [https://bearpro.tistory.com/6][https://bearpro.tistory.com/6]
+

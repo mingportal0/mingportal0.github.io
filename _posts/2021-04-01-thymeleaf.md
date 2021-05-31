@@ -112,7 +112,7 @@ for문과 유사하게 작동된다.
 
 `message.properties`에 정의된 변수를 보여줄 수 있다.
 
-참고 https://victorydntmd.tistory.com/340
+[참고][https://victorydntmd.tistory.com/340]
 
 
 
@@ -228,10 +228,6 @@ form태그에서 action="#"와 같이 사용한다.
 
 **참고**
 
-https://yulfsong.tistory.com/97
+[https://yulfsong.tistory.com/97][https://yulfsong.tistory.com/97]
 
-https://cyberx.tistory.com/132
-<!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI5OTAyMzg1MSwtNzU2OTQ5MzcwLC04MD
-I3NDQzMTFdfQ==
--->
+[https://cyberx.tistory.com/132][https://cyberx.tistory.com/132]

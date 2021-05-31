@@ -8,8 +8,8 @@ comment: yes
 ---
 
 ### JVM
-자바 가상 머신<br>
-참고 : <a href-"https://asfirstalways.tistory.com/158" >참고 URL</a><br>
+자바 가상 머신
+참고 : [참고 URL][https://asfirstalways.tistory.com/158]
 
 ![jvm](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/jvm.png)
 
@@ -45,7 +45,7 @@ jar파일 내 저장되 클래스들을 JVM 위에 탑재하고 사용하지 않
 프레임 별로 삭제를 한다. 또한 메소드 내 로컬 변수, 매개변수, 지역변수, 리턴 값, 연산 시 일어나는 값들을 저장한다.
 
 #### GC
-<a href-"https://asfirstalways.tistory.com/159" >참고 URL</a><br>
+[참고 URL][https://asfirstalways.tistory.com/159]
 
 #### Method Area
 클래스 정보를 처음 메모리 공간에 올릴 때 초기화되는 대상을 저장하기 위한 메모리 공간. 자바는 메소드의 계속된 호출로 프로그램이 흘러가기 때문에 

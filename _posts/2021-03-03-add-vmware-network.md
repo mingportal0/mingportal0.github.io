@@ -27,7 +27,5 @@ comment: yes
 
 
 
-출처 - 출처에서는 리눅스-우분투 환경인 것 같다.
-
-https://m.blog.naver.com/PostView.nhn?blogId=ekthatkxkd&logNo=221539540004&proxyReferer=https:%2F%2Fwww.google.com%2F
+[출처][https://m.blog.naver.com/PostView.nhn?blogId=ekthatkxkd&logNo=221539540004&proxyReferer=https:%2F%2Fwww.google.com%2F] - 출처에서는 리눅스-우분투 환경인 것 같다.
 

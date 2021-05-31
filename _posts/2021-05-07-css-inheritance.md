@@ -149,5 +149,6 @@ CSS 적용 우선 순위를 지정하는 것을 Cascading이라고 한다.
 
 
 
-참고
-https://poiemaweb.com/css3-inheritance-cascading
+##### 참고
+
+[https://poiemaweb.com/css3-inheritance-cascading][https://poiemaweb.com/css3-inheritance-cascading]

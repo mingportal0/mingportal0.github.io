@@ -9,7 +9,7 @@ comment: yes
 
 
 
-https://reactjs.org/docs/lifting-state-up.html
+[https://reactjs.org/docs/lifting-state-up.html][https://reactjs.org/docs/lifting-state-up.html]
 
 BoilingVerdict
 

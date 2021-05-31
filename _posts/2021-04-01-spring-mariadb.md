@@ -149,7 +149,7 @@ Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientCo
 org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Could not connect to HostAddress{host='DB-Server-IP', port=3306, type='master'}. Host 'mjroh' is not allowed to connect to this MariaDB server
 ```
 
-해결법 (참고 https://java119.tistory.com/61)
+해결법 [참고][https://java119.tistory.com/61]
 
 해당 에러는 DB를 외부에서 접속 시 발생할 때 보안 상 권한이 없기 떄문에 발생한다고 한다.
 

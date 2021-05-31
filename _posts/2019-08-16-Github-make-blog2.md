@@ -12,12 +12,10 @@ comment: yes
 그 이유는 깃허브에서 직접 수정하기에는 수정사항이 바로 적용되지 않기 때문에 불편하기 때문입니다.<br/>
 
 ### 1. 루비 설치
-링크<br/>
-http://jekyll-windows.juthilo.com/1-ruby-and-devkit/<br/>
+[링크][http://jekyll-windows.juthilo.com/1-ruby-and-devkit]
 
 ### 2. 깃허브 데스크탑 설치 & 로컬에 repository 만들기
-링크<br/>
-https://desktop.github.com/<br/>
+[링크][https://desktop.github.com/]
 
 깃허브 데스크탑에서 'clone repository'를 한다.
 그러면 로컬에서 자신의 Repository를 수정할 수 있습니다.
@@ -72,8 +70,8 @@ gem "minimal-mistakes-jekyll"
 그래서 파일이름이나 확장자도 대소문자를 구분하기 때문에 조심히 작성해야 합니다.
 파일 인코딩은 유닉스, UTF-8로 하니까 괜찮더라구요. 다른분들은 어떻게 했는지 모르겠지만
 저는 notepad++에서 작업을 했는데 다른 인코딩은 자꾸 에러가 나서 힘들었습니다.
-자세한 것은 아래 링크를 참고해주세요.
-https://mmistakes.github.io/minimal-mistakes/docs/configuration/
+자세한 것은 [링크][https://mmistakes.github.io/minimal-mistakes/docs/configuration/]를 참고해주세요.
+
 
 ```yaml
 ---

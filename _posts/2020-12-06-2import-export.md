@@ -9,7 +9,7 @@ comment: yes
 
 
 
-https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829
+[https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829][https://medium.com/dailyjs/javascript-module-cheatsheet-7bd474f1d829]
 
 1. Name 😂
 

@@ -9,9 +9,9 @@ comment: yes
 
 
 
-https://reactnative.dev/docs/getting-started
-
 1. React-Native란?
+
+   [https://reactnative.dev/docs/getting-started][https://reactnative.dev/docs/getting-started]
 
 + [React](https://reactjs.org/) 와 앱 플랫폼의 기본 기능을 사용하여 Android 및 iOS 애플리케이션을 빌드하기위한 오픈 소스 프레임 워크
 
