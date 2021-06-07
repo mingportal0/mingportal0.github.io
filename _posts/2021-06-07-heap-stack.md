@@ -30,7 +30,7 @@ Java 메모리 구조는 다음과 같다.
 - Stack 메모리 : 메소드가 호출되면 Stack 메모리 내 Stack 프레임에 쌓이고 메소드가 종료되면 삭제된다.
 - Heap 메모리 : 인스턴스가 생성되는 공간.
 
-![image-20210607170655957](C:\Users\mjroh\Pictures\typora\image-20210607170655957.png)
+![image-20210607170655957](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210607170655957.png)
 
 아래의 예제를 보자.
 
