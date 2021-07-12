@@ -11,7 +11,7 @@ comment: yes
 
 ### 제품의 테이블 위에 넣기
 
-![image-20210707154036222](C:\Users\mjroh\Pictures\typora\image-20210707154036222.png)
+![image-20210707154036222](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210707154036222.png)
 
 > WC_HOME\codebase\WEB-INF\jsp\folder\table.jsp
 
@@ -30,7 +30,7 @@ comment: yes
 
 ### 제품의 프로퍼티패널에 넣기
 
-![image-20210707154758671](C:\Users\mjroh\Pictures\typora\image-20210707154758671.png)
+![image-20210707154758671](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210707154758671.png)
 
 > WC_HOME\codebase\WEB-INF\jsp\folder\folderDetailsBox.jsp
 
@@ -51,7 +51,7 @@ addButton(itemPanel);
 
 ### 헤더패널에 넣기
 
-![image-20210707154829378](C:\Users\mjroh\Pictures\typora\image-20210707154829378.png)
+![image-20210707154829378](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210707154829378.png)
 
 > WC_HOME\codebase\netmarkets\javascript\util\windchill-all.js
 
@@ -115,7 +115,7 @@ var config = {
 
 ### 작업공간 테이블의 툴바에 넣기
 
-![image-20210707154003504](C:\Users\mjroh\Pictures\typora\image-20210707154003504.png)
+![image-20210707154003504](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210707154003504.png)
 
 > WC_HOME\codebase\netmarkets\jsp\ws\wsDetails.jsp
 
@@ -140,7 +140,7 @@ iframe.onload = function(){
 
 ##### 방법2 : 자바 소스 수정 (WorkGroupManager에서도 나옴)
 
-![image-20210708105817808](C:\Users\mjroh\Pictures\typora\image-20210708105817808.png)
+![image-20210708105817808](https://raw.githubusercontent.com/mingportal0/mingportal0.github.io/main/img/image-20210708105817808.png)
 
 wncWeb.jar에서 여러 파일을 수정해야 한다.
 
