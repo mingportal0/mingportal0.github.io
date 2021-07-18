@@ -22,7 +22,7 @@ comment: yes
 - TDD(Test Driven Development) : karma, jasmine, mocha, chai
 - 알고리즘, 자료 구조
 
-참고 : [링크](https://roadmap.sh/frontend]
+참고 : [링크](https://roadmap.sh/frontend)
 
 
 
@@ -33,5 +33,5 @@ comment: yes
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTY1NTYzMjk3MF19
+eyJoaXN0b3J5IjpbMTU4NTUwMzM2Ml19
 -->
