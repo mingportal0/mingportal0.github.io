@@ -5,14 +5,16 @@ import { heroBlockSchema } from "../components/blocks/hero";
 import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { ColorPickerInput } from "../components/fields/color";
 import { iconSchema } from "../components/util/icon";
+const branch =
+  process.env.NEXT_PUBLIC_TINA_BRANCH ||
+  process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
+  process.env.HEAD ||
+  ''
 
 const config = defineConfig({
-  clientId: process.env.TINA_PUBLIC_CLIENT_ID,
-  branch:
-    process.env.NEXT_PUBLIC_TINA_BRANCH || // custom branch env override
-    process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF || // Vercel branch env
-    process.env.HEAD, // Netlify branch env
-  token: process.env.TINA_TOKEN,
+  clientId: '320c68b7-1d73-4a9d-a84c-062e2f319389', // process.env.TINA_PUBLIC_CLIENT_ID,
+  branch,
+  token: 'fc7509c14a58a25d8ebccc7b7cb9f50ff067fbcd', // process.env.TINA_TOKEN,
   media: {
     // If you wanted cloudinary do this
     // loadCustomStore: async () => {
