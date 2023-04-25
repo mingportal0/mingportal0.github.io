@@ -6,7 +6,7 @@ import { testimonialBlockSchema } from "../components/blocks/testimonial";
 import { ColorPickerInput } from "../components/fields/color";
 import { iconSchema } from "../components/util/icon";
 const branch =
-  process.env.NEXT_PUBLIC_TINA_BRANCH ||
+  'main' ||
   process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_REF ||
   process.env.HEAD ||
   ''
