@@ -9,10 +9,6 @@
     "color": "default",
     "nav": [
       {
-        "href": "",
-        "label": "Home"
-      },
-      {
         "href": "about",
         "label": "About"
       },
