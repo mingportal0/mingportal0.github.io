@@ -11,34 +11,33 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-import React from "react";
-import { Container } from "../util/container";
-import { Section } from "../util/section";
-import { useTheme } from "../layout";
-import format from "date-fns/format";
-import { TinaMarkdown } from "tinacms/dist/rich-text";
-import { Prism } from "tinacms/dist/rich-text/prism";
-import type { TinaMarkdownContent, Components } from "tinacms/dist/rich-text";
+import React from 'react'
+import { Container } from '../util/container'
+import { Section } from '../util/section'
+import format from 'date-fns/format'
+import { TinaMarkdown } from 'tinacms/dist/rich-text'
+import { Prism } from 'tinacms/dist/rich-text/prism'
+import type { TinaMarkdownContent, Components } from 'tinacms/dist/rich-text'
 
 const components: Components<{
   BlockQuote: {
-    children: TinaMarkdownContent;
-    authorName: string;
-  };
+    children: TinaMarkdownContent
+    authorName: string
+  }
   DateTime: {
-    format?: string;
-  };
+    format?: string
+  }
   NewsletterSignup: {
-    placeholder: string;
-    buttonText: string;
-    children: TinaMarkdownContent;
-    disclaimer?: TinaMarkdownContent;
-  };
+    placeholder: string
+    buttonText: string
+    children: TinaMarkdownContent
+    disclaimer?: TinaMarkdownContent
+  }
 }> = {
   code_block: (props) => <Prism {...props} />,
   BlockQuote: (props: {
-    children: TinaMarkdownContent;
-    authorName: string;
+    children: TinaMarkdownContent
+    authorName: string
   }) => {
     return (
       <div>
@@ -47,28 +46,28 @@ const components: Components<{
           {props.authorName}
         </blockquote>
       </div>
-    );
+    )
   },
   DateTime: (props) => {
     const dt = React.useMemo(() => {
-      return new Date();
-    }, []);
+      return new Date()
+    }, [])
 
     switch (props.format) {
-      case "iso":
-        return <span>{dt.toISOString()}</span>;
-      case "utc":
-        return <span>{dt.toUTCString()}</span>;
-      case "local":
-        return <span>{dt.toLocaleDateString()}</span>;
+      case 'iso':
+        return <span>{dt.toISOString()}</span>
+      case 'utc':
+        return <span>{dt.toUTCString()}</span>
+      case 'local':
+        return <span>{dt.toLocaleDateString()}</span>
       default:
-        return <span>{dt.toLocaleDateString()}</span>;
+        return <span>{dt.toLocaleDateString()}</span>
     }
   },
   NewsletterSignup: (props) => {
     return (
       <div className="bg-white">
-        <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl py-8 px-4 sm:px-6 lg:px-8">
           <div className="">
             <TinaMarkdown content={props.children} />
           </div>
@@ -83,13 +82,13 @@ const components: Components<{
                 type="email"
                 autoComplete="email"
                 required
-                className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-teal-500 focus:border-teal-500 sm:max-w-xs rounded-md"
+                className="w-full rounded-md border border-gray-300 px-5 py-3 placeholder-gray-400 shadow-sm focus:border-teal-500 focus:ring-1 focus:ring-teal-500 sm:max-w-xs"
                 placeholder={props.placeholder}
               />
               <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center py-3 px-5 border border-transparent text-base font-medium rounded-md text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+                  className="flex w-full items-center justify-center rounded-md border border-transparent bg-teal-600 py-3 px-5 text-base font-medium text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
                 >
                   {props.buttonText}
                 </button>
@@ -101,35 +100,34 @@ const components: Components<{
           </div>
         </div>
       </div>
-    );
+    )
   },
   img: (props) => (
     <div className="flex items-center justify-center">
       <img src={props.url} alt={props.alt} />
     </div>
   ),
-};
+}
 
 export const Post = (props) => {
-  const theme = useTheme();
   const titleColorClasses = {
-    blue: "from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500",
-    teal: "from-teal-400 to-teal-600 dark:from-teal-300 dark:to-teal-500",
-    green: "from-green-400 to-green-600",
-    red: "from-red-400 to-red-600",
-    pink: "from-pink-300 to-pink-500",
+    blue: 'from-blue-400 to-blue-600 dark:from-blue-300 dark:to-blue-500',
+    teal: 'from-teal-400 to-teal-600 dark:from-teal-300 dark:to-teal-500',
+    green: 'from-green-400 to-green-600',
+    red: 'from-red-400 to-red-600',
+    pink: 'from-pink-300 to-pink-500',
     purple:
-      "from-purple-400 to-purple-600 dark:from-purple-300 dark:to-purple-500",
+      'from-purple-400 to-purple-600 dark:from-purple-300 dark:to-purple-500',
     orange:
-      "from-orange-300 to-orange-600 dark:from-orange-200 dark:to-orange-500",
+      'from-orange-300 to-orange-600 dark:from-orange-200 dark:to-orange-500',
     yellow:
-      "from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500",
-  };
+      'from-yellow-400 to-yellow-500 dark:from-yellow-300 dark:to-yellow-500',
+  }
 
-  const date = new Date(props.date);
-  let formattedDate = "";
+  const date = new Date(props.date)
+  let formattedDate = ''
   if (!isNaN(date.getTime())) {
-    formattedDate = format(date, "MMM dd, yyyy");
+    formattedDate = format(date, 'MMM dd, yyyy')
   }
 
   return (
@@ -137,25 +135,23 @@ export const Post = (props) => {
       <Container width="small" className={`flex-1 pb-2`} size="large">
         <h2
           data-tinafield="title"
-          className={`w-full relative	mb-8 text-6xl font-extrabold tracking-normal text-center title-font`}
+          className={`title-font relative	mb-8 w-full text-center text-6xl font-extrabold tracking-normal`}
         >
           <span
-            className={`bg-clip-text text-transparent bg-gradient-to-r ${
-              titleColorClasses[theme.color]
-            }`}
+            className={`bg-gradient-to-r bg-clip-text text-transparent ${titleColorClasses['blue']}`}
           >
             {props.title}
           </span>
         </h2>
         <div
           data-tinafield="author"
-          className="flex items-center justify-center mb-16"
+          className="mb-16 flex items-center justify-center"
         >
           {props.author && (
             <>
-              <div className="flex-shrink-0 mr-4">
+              <div className="mr-4 flex-shrink-0">
                 <img
-                  className="h-14 w-14 object-cover rounded-full shadow-sm"
+                  className="h-14 w-14 rounded-full object-cover shadow-sm"
                   src={props.author.avatar}
                   alt={props.author.name}
                 />
@@ -163,7 +159,7 @@ export const Post = (props) => {
               <p className="text-base font-medium text-gray-600 group-hover:text-gray-800 dark:text-gray-200 dark:group-hover:text-white">
                 {props.author.name}
               </p>
-              <span className="font-bold text-gray-200 dark:text-gray-500 mx-2">
+              <span className="mx-2 font-bold text-gray-200 dark:text-gray-500">
                 —
               </span>
             </>
@@ -177,29 +173,29 @@ export const Post = (props) => {
         </div>
       </Container>
       {props.heroImg && (
-        <div className="px-4 w-full">
+        <div className="w-full px-4">
           <div
             data-tinafield="heroImg"
-            className="relative max-w-4xl lg:max-w-5xl mx-auto"
+            className="relative mx-auto max-w-4xl lg:max-w-5xl"
           >
             <img
               src={props.heroImg}
-              className="absolute block rounded-lg w-full h-auto blur-2xl brightness-150 contrast-[0.9] dark:brightness-150 saturate-200 opacity-50 dark:opacity-30 mix-blend-multiply dark:mix-blend-hard-light"
+              className="absolute block h-auto w-full rounded-lg opacity-50 mix-blend-multiply blur-2xl brightness-150 contrast-[0.9] saturate-200 dark:opacity-30 dark:mix-blend-hard-light dark:brightness-150"
               aria-hidden="true"
             />
             <img
               src={props.heroImg}
               alt={props.title}
-              className="relative z-10 mb-14 block rounded-lg w-full h-auto opacity-100"
+              className="relative z-10 mb-14 block h-auto w-full rounded-lg opacity-100"
             />
           </div>
         </div>
       )}
       <Container className={`flex-1 pt-4`} width="small" size="large">
-        <div className="prose dark:prose-dark w-full max-w-none">
+        <div className="prose w-full max-w-none dark:prose-dark">
           <TinaMarkdown components={components} content={props._body} />
         </div>
       </Container>
     </Section>
-  );
-};
+  )
+}
