@@ -9,18 +9,21 @@
     "color": "default",
     "nav": [
       {
-        "href": "posts",
-        "label": "Posts"
-      },
-      {
         "href": "about",
         "label": "About"
+      },
+      {
+        "href": "",
+        "label": "Posts"
       }
     ]
   },
   "footer": {
     "color": "default",
     "social": {
+      "facebook": "/",
+      "twitter": "/",
+      "instagram": "/",
       "github": "https://github.com/mingportal0/"
     }
   },
