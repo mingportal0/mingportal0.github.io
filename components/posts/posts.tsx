@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { BsArrowRight } from 'react-icons/bs'
 import format from 'date-fns/format'
+import SearchBar from '../util/searchbar'
+import { useState } from 'react'
 
-export const Posts = ({ data }) => {
+export const Posts = ({ data, initialDisplayPosts = [], title, searchYn }) => {
   const titleColorClasses = {
     blue: 'group-hover:text-blue-600 dark:group-hover:text-blue-300',
     teal: 'group-hover:text-teal-600 dark:group-hover:text-teal-300',
@@ -15,10 +17,24 @@ export const Posts = ({ data }) => {
     orange: 'group-hover:text-orange-600 dark:group-hover:text-orange-300',
     yellow: 'group-hover:text-yellow-500 dark:group-hover:text-yellow-300',
   }
-
+  const [searchValue, setSearchValue] = useState('')
+  const filteredBlogPosts = data.filter((postData) => {
+    const post = postData.node
+    const searchContent =
+      post._values.title + post._values.excerpt.children[0].children[0].text
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase())
+  })
+  const displayPosts =
+    initialDisplayPosts.length > 0 && !searchValue
+      ? initialDisplayPosts
+      : filteredBlogPosts
   return (
     <>
-      {data.map((postData) => {
+      <SearchBar title={title} listener={setSearchValue} searchYn={searchYn} />
+      {!filteredBlogPosts.length && (
+        <div className="my-8 text-2xl opacity-80">No posts found.</div>
+      )}
+      {displayPosts.map((postData) => {
         const post = postData.node
         const date = new Date(post.date)
         let formattedDate = ''

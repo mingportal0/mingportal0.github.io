@@ -3,11 +3,8 @@ import ThemeSwitch from './ThemeSwitch'
 import React from 'react'
 import Link from './Link'
 import { Icon } from '../util/icon'
-import { useRouter } from 'next/router'
 
 export const Header = ({ data }) => {
-  const router = useRouter()
-
   // If we're on an admin path, other links should also link to their admin paths
   const [prefix, setPrefix] = React.useState('')
 
@@ -33,7 +30,7 @@ export const Header = ({ data }) => {
               />
             </div>
             {typeof data.name === 'string' ? (
-              <div className="hidden h-6 text-2xl font-semibold sm:block">
+              <div className="hidden h-full text-2xl font-semibold sm:block">
                 {data.name}
               </div>
             ) : (

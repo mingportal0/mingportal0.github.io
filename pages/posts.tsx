@@ -12,8 +12,8 @@ export default function HomePage(
   return (
     <Layout>
       <Section className="flex-1">
-        <Container size="large" width="small">
-          <Posts data={posts} />
+        <Container size="medium" width="small">
+          <Posts data={posts} title="All Posts" searchYn={true} />
         </Container>
       </Section>
     </Layout>
