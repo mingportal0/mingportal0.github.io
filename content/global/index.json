@@ -13,7 +13,7 @@
         "label": "About"
       },
       {
-        "href": "",
+        "href": "/posts",
         "label": "Posts"
       }
     ]
@@ -22,9 +22,9 @@
     "color": "default",
     "social": {
       "facebook": "/",
+      "github": "https://github.com/mingportal0/",
       "twitter": "/",
-      "instagram": "/",
-      "github": "https://github.com/mingportal0/"
+      "instagram": "/"
     }
   },
   "theme": {
