@@ -135,7 +135,7 @@ export const Post = (props) => {
       <Container width="small" className={`flex-1 pb-2`} size="large">
         <h2
           data-tinafield="title"
-          className={`title-font relative	mb-8 w-full text-center text-6xl font-extrabold tracking-normal`}
+          className={`title-font relative	mb-8 w-full text-center text-5xl font-extrabold tracking-normal`}
         >
           <span
             className={`bg-gradient-to-r bg-clip-text text-transparent ${titleColorClasses['blue']}`}

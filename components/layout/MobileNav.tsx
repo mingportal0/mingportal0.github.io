@@ -1,8 +1,15 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import Link from './Link'
 
 const MobileNav = ({ data }) => {
+  const [prefix, setPrefix] = React.useState('')
   const [navShow, setNavShow] = useState(false)
+
+  React.useEffect(() => {
+    if (window && window.location.pathname.startsWith('/admin')) {
+      setPrefix('/admin')
+    }
+  }, [])
 
   const onToggleNav = () => {
     setNavShow((status) => {
@@ -65,7 +72,7 @@ const MobileNav = ({ data }) => {
           {data.nav.map((link) => (
             <div key={link.label} className="px-12 py-4">
               <Link
-                href={link.href}
+                href={`${prefix}/${link.href}`}
                 className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
                 onClick={onToggleNav}
               >

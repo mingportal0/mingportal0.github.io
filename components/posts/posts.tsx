@@ -30,7 +30,12 @@ export const Posts = ({ data, initialDisplayPosts = [], title, searchYn }) => {
       : filteredBlogPosts
   return (
     <>
-      <SearchBar title={title} listener={setSearchValue} searchYn={searchYn} />
+      <SearchBar
+        title={title}
+        searchYn={searchYn}
+        searchValue={searchValue}
+        listener={setSearchValue}
+      />
       {!filteredBlogPosts.length && (
         <div className="my-8 text-2xl opacity-80">No posts found.</div>
       )}
