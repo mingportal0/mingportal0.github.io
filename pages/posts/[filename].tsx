@@ -2,7 +2,6 @@ import { Post } from '../../components/posts/post'
 import { client } from '../../tina/__generated__/client'
 import { useTina } from 'tinacms/dist/react'
 import { Layout } from '../../components/layout'
-import Utterances from '../../components/comment/Utterances'
 
 // Use the props returned by get static props
 export default function BlogPostPage(
@@ -17,7 +16,6 @@ export default function BlogPostPage(
     return (
       <Layout rawData={data} data={data.global as any}>
         <Post {...data.post} />
-        <Utterances />
       </Layout>
     )
   }

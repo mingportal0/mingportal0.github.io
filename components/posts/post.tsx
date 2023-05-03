@@ -18,6 +18,7 @@ import format from 'date-fns/format'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { Prism } from 'tinacms/dist/rich-text/prism'
 import type { TinaMarkdownContent, Components } from 'tinacms/dist/rich-text'
+import Utterances from '../comment/Utterances'
 
 const components: Components<{
   BlockQuote: {
@@ -194,6 +195,7 @@ export const Post = (props) => {
       <Container className={`flex-1 pt-4`} width="small" size="large">
         <div className="prose w-full max-w-none dark:prose-dark">
           <TinaMarkdown components={components} content={props._body} />
+          <Utterances />
         </div>
       </Container>
     </Section>
