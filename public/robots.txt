@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mingportal0.github.io
+
+# Sitemaps
+Sitemap: https://mingportal0.github.io/sitemap.xml

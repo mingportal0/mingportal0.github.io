@@ -8,7 +8,8 @@
     "start": "tinacms build && next start",
     "export": "npm run build && next export",
     "lint": "eslint --fix . --ext .ts,.tsx",
-    "format": "prettier --write \"**/*.{css,ts,tsx}\""
+    "format": "prettier --write \"**/*.{css,ts,tsx}\"",
+    "postbuild": "next-sitemap"
   },
   "devDependencies": {
     "@svgr/webpack": "^6.3.1",
@@ -24,18 +25,19 @@
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
-    "prettier": "^2.7.0",
-    "prettier-plugin-tailwindcss": "^0.2.2",
+    "pliny": "0.0.10",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
     "postcss-nesting": "^10.1.0",
-    "pliny": "0.0.10"
+    "prettier": "^2.7.0",
+    "prettier-plugin-tailwindcss": "^0.2.2"
   },
   "dependencies": {
     "@headlessui/react": "1.7.5",
     "@tailwindcss/typography": "^0.5.8",
     "date-fns": "^2.23.0",
     "next": "^12.3.1",
+    "next-sitemap": "^4.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-icons": "^4.2.0",

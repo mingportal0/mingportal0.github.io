@@ -2,6 +2,7 @@ import { Post } from '../../components/posts/post'
 import { client } from '../../tina/__generated__/client'
 import { useTina } from 'tinacms/dist/react'
 import { Layout } from '../../components/layout'
+import Opengraph from '../../components/util/opengraph'
 
 // Use the props returned by get static props
 export default function BlogPostPage(
@@ -12,9 +13,15 @@ export default function BlogPostPage(
     variables: props.variables,
     data: props.data,
   })
+  console.log({ data })
   if (data && data.post) {
     return (
       <Layout rawData={data} data={data.global as any}>
+        <Opengraph
+          title={data.post.title}
+          description={data.post.excerpt.children[0].children[0].text}
+          image={data.post.heroImg}
+        />
         <Post {...data.post} />
       </Layout>
     )
