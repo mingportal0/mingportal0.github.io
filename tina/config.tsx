@@ -77,6 +77,16 @@ const config = defineConfig({
             },
           },
           {
+            type: 'string',
+            label: 'Tags',
+            name: 'tags',
+            description: 'Tags for this post',
+            list: true,
+            ui: {
+              component: 'tags',
+            },
+          },
+          {
             type: 'rich-text',
             label: 'Body',
             name: '_body',
