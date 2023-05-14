@@ -22,16 +22,17 @@ tags:
 
 ![](/uploads/20190820_strategy_pattern2.png)
 
-# 참고) 이것을 스프링에서 만들면?
+# 참고
+이것을 스프링에서 만들면?
 
 ```java
 public class UserDaoTest {
 	final static Logger LOG = Logger.getLogger(UserDaoTest.class);
-	
+
 	public static void main(String[] args) {
 		AbstractApplicationContext context = new GenericXmlApplicationContext("applicationContext.xml");
 		UserDao dao = context.getBean("userDao", UserDao.class);
-		
+
 		//j01_ip : j01_125
 		User user01 = new User("j01_125","노명진","1234");
 		try {
@@ -39,7 +40,7 @@ public class UserDaoTest {
 			LOG.debug("=============================");
 			LOG.debug("01. add flag="+flag);
 			LOG.debug("=============================");
-			
+
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();
 		}
@@ -74,21 +75,21 @@ public interface ConnectionMaker {
 
 }
 public class DUserDao implements ConnectionMaker {
-	
+
 	final static Logger LOG = Logger.getLogger(DUserDao.class);
-	
+
 	@Override
 	public Connection makeConnection() throws ClassNotFoundException, SQLException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		String url    = "jdbc:oracle:thin:@ip_num:port:SID";
 		String userId = "orcl_id";
-		String passwd = "orcl_pass";		
-		
+		String passwd = "orcl_pass";
+
 		Connection conn = DriverManager.getConnection(url,userId,passwd);
 		LOG.debug("---------------------");
 		LOG.debug("01. conn : "+conn);
 		LOG.debug("---------------------");
-		
+
 		return conn;
 	}
 
@@ -99,7 +100,7 @@ public class UserDao {
 	public UserDao() {
 		//connectionMaker = new DUserDao();
 	}
-	
+
 	public void setConnectionMaker(ConnectionMaker connectionMaker) {
 		this.connectionMaker = connectionMaker;
 	}
@@ -107,21 +108,21 @@ public class UserDao {
 
 	public int add(User user)throws ClassNotFoundException, SQLException{
 		int flag = 0;
-		
+
 		Connection conn = connectionMaker.makeConnection();
-		
+
 		LOG.debug("========================================");
 		LOG.debug(conn+" 연결 완료");
 		LOG.debug("========================================");
-		
+
 		LOG.debug("========================================");
 		LOG.debug(user+" 추가 완료");
 		LOG.debug("========================================");
-		
+
 		flag = 1;
 		return flag;
 	}
-	
+
 }
 ```
 
