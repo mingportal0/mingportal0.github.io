@@ -1,0 +1,211 @@
+---
+title: React - JSX
+excerpt: >
+  JSX(Javascript XML)는 React.createElement(component, props, ...children)함수를
+  사용하는 것 대신 React에서 UI 작업을 할 때 사용한다.
+author: content/authors/mingportal0.md
+date: 2020-12-06T15:00:00.000Z
+tags:
+  - react
+---
+
+JSX(Javascript XML)는 `React.createElement(component, props, ...children)`함수를 사용하는 것 대신 React에서 UI 작업을 할 때 사용한다.
+
+```javascript
+  const App = () => {
+  return (
+    <MyBtn color="blue" shadowSize={2}>
+      Click Me
+    </MyBtn>
+  );
+```
+
+이게 이렇게 컴파일 된다.
+
+```javascript
+React.createElement(
+  MyBtn,
+  {color: 'blue', shadowSize: 2},
+  'Click Me'
+)
+```
+
+JSX를 사용함으로써 React에서 UI작업을 쉽게 할 수 있다.
+
+# JSX 규칙
+
+## 사용자 정의 컴포넌트는 대문자로 시작해야 한다.
+
+```javascript
+import React from 'react';
+import CustomButton from './CustomButton';
+
+function WarningButton() {
+  // return React.createElement(CustomButton, {color: 'red'}, null);
+  return <CustomButton color="red" />;
+}
+```
+
+## 점표기법(:)을 사용할 수 있다.
+
+```javascript
+import React from 'react';
+
+const MyComponents = {
+  DatePicker: function DatePicker(props) {
+    return <div>Imagine a {props.color} datepicker here.</div>;
+  }
+}
+   
+function BlueDatePicker() {
+  return <MyComponents.DatePicker color="blue" />;
+}
+```
+
+## 런타임 시 아래와 같이 대문자 변수에 재할당해서 표현할 수 있다.
+
+```javascript
+import React from 'react';
+import { PhotoStory, VideoStory } from './stories';
+
+   
+const components = {
+  photo: PhotoStory,
+  video: VideoStory
+};
+   
+function Story(props) {
+  // Correct! JSX type can be a capitalized variable.
+  const SpecificStory = components[props.storyType];
+
+  return <SpecificStory story={props.story} />;
+}
+```
+
+# JSX의 도구
+
+## Javascript 표현식은 `{}`로 표현한다.
+
+```javascript
+  <MyComponent foo={1 + 2 + 3 + 4} />
+```
+
+그리고 if문이나 for문은 JSX와 같이 사용할 수 없다. 왜냐면 그건 Javascript의 표현식이 아니기 때문이다. 그래서 주변 코드에 넣어야 한다.
+
+```javascript
+function NumberDescriber(props) {
+  let description;
+  if (props.number % 2 == 0) {
+    description = <strong>even</strong>;
+  } else {
+    description = <i>odd</i>;
+  }
+  
+  return <div>{props.number} is an {description} number</div>;
+}
+```
+
+### 참고) 조건부 렌더링(if)
+
+https://reactjs.org/docs/conditional-rendering.html
+
+### 참고 ) 루프(for)
+
+https://reactjs.org/docs/lists-and-keys.html
+
+## 문자열 리터럴
+
+```javascript
+  <MyComponent message="hello world" />
+  <MyComponent message={'hello world'} />
+```
+
+## props의 기본값은 True 다.
+
+```javascript
+  <MyTextBox autocomplete />
+  <MyTextBox autocomplete={true} />
+```
+
+## 스프레드 속성
+
+스프레드 연산자는 유용하지만 불필요한 props 객체를 DOM에 전달할 수 있기 때문에 조금만 쓰는게 좋다.
+
+```javascript
+const MyBtn = props => {
+  const { kind, ...other } = props;
+  const className = kind === "primary" ? "PrimaryButton" : "SecondaryButton";
+  return <button className={className} {...other} />;
+};
+
+const App = () => {
+  return (
+    <div>
+      <MyBtn kind="primary" onClick={() => 	
+        console.log("clicked!")
+      }>
+        Hello World!
+      </MyBtn>
+    </div>
+  );
+};
+```
+
+위와 같이 kind는 조건식을 위해만 사용하고 나머지 props인 other를 `<button>`에 전달하고 있다.
+
+# JSX Children
+
+## 태그 사이 공백과 빈줄은 제거된다.
+
+```javascript
+  <div>Hello World</div>
+  <div>
+    Hello World
+  </div>
+```
+
+JSX의 여는 태그와 닫는 태그 사이 공백과 빈줄은 제거된다. 위 두 div는 같다.
+
+## 배열 리턴
+
+```javascript
+render() {
+  // No need to wrap list items in an extra element!
+  return [
+     // Don't forget the keys :)
+     <li key="A">First item</li>,
+     <li key="B">Second item</li>,
+     <li key="C">Third item</li>,
+  ];
+}
+```
+
+위와 같이 배열을 리턴할 수 있고 이것은 감쌀 필요가 없다.
+
+## 자식으로써 Javascript 표현식
+
+```javascript
+function Item(props) {
+  return <li>{props.message}</li>;
+}
+
+
+function TodoList() {
+  const todos = ['finish doc', 'submit pr', 'nag dan to review'];
+  return (
+  <ul>
+    {todos.map((message) => 
+      <Item key={message} message={message} />
+    )}
+  </ul>
+  );
+}
+```
+
+## Boolean, Null, undefined는 JSX에서 모두 빈값이 된다.
+
+만약 표시하고 싶다면 String(variable)을 사용해 변환한다.
+
+# 참고
+
+https://reactjs.org/docs/jsx-in-depth.html
