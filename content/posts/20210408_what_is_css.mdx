@@ -1,0 +1,88 @@
+---
+title: CSS - 기초
+excerpt: |
+  CSS란?, 버전, 셀렉터(선택자), 사용 방법, Reset CSS
+author: content/authors/mingportal0.md
+date: 2021-04-08T00:00:00.000Z
+tags:
+  - css
+---
+
+# CSS란
+
+Cascading Style Sheets.
+
+HTML 요소들이 각종 미디어에서 어떻게 보여지는가를 정의하는데 필요한 스타일 시트 언어이다.
+
+CSS를 사용하지 않으면 HTML 요소에 style-attribute 값을 일일이 지정해주어야 하는데 이는 오래걸리고 유지보수도 힘들어진다. 그래서 W3C에서 만든 스타일 시트 언어가 CSS이다.
+
+확장자명은 `.css`이다.
+
+# CSS 버전
+
+현재 css3까지 나왔다.
+
+# 셀렉터 (선택자)
+
+```css
+p {
+  color: red;
+  font-size: 12px;
+}
+```
+
+* `p` : 셀렉터 (Selector)
+* `{...}` : 선언 블록 (Declaration block)
+* `color : red` : 선언 (Declaration)
+* `color` : 프로퍼티(Property). 프로퍼티는 이미 지정된 표준 스펙을 사용하여야 한다.
+* `red` : 프로퍼티 값(Property Value). 프로퍼티 값은 키워드나 크기 단위, 색상 표현 단위 등 특정 단위로 지정되어야 한다.
+
+# 사용
+
+보통 HTML파일 내 Link 태그를 통해 외부 CSS파일을 로드하는 방식을 따른다.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is a web page.</p>
+  </body>
+</html>
+```
+
+아니면 HTML내부에 CSS를 포함하는 방식이 있지만 따로 관리하는 것이 바람직하다.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      h1 { color: red; }
+      p  { background: aqua; }
+    </style>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <p>This is a web page.</p>
+  </body>
+</html>
+```
+
+# Reset CSS
+
+모든 웹 브라우저는 디폴트 스타일이 있어 CSS가 없어도 작동된다. 그러나 웹브라우저 마다 디폴트 스타일이 다르기 때문에 주의해야 한다.
+
+Reset CSS는 모든 HTML 요소의 CSS를 초기화하는 용도로 사용한다.
+
+보통 아래 Reset CSS를 사용한다.
+
+* [Eric Meyer’s reset](http://meyerweb.com/eric/tools/css/reset/)
+* [normalize.css](https://necolas.github.io/normalize.css/)
+
+# 참고
+
+[참고 URL](http://www.tcpschool.com/css/css_intro_basic)
