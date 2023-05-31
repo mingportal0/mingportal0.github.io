@@ -1,0 +1,75 @@
+---
+title: 고유한 문자 추출하기
+excerpt: |
+  고유한 문자 추출하기
+  파람은 a와 b가 조합된 문자열이 입력된다.
+  그 문자열에서 연속된 문자가 3번 이상 나오면 제외하여 추출한 연속된 문자열의 최대 길이를 리턴하는 메소드를 만들어라
+author: content/authors/mingportal0.md
+date: '2019-08-23T15:00:00.000Z'
+tags:
+  - 코딩테스트
+  - java
+---
+
+
+파람은 a와 b가 조합된 문자열이 입력된다.
+그 문자열에서 연속된 문자가 3번 이상 나오면 제외하여 추출한 연속된 문자열의 최대 길이를 리턴하는 메소드를 만들어라
+
+# 출력 메소드 예시
+
+```java
+public int solution(String s){}
+```
+
+# 예시
+
+* **aabbaa** : 6
+* aab**bbaabbaa**a : 8
+* aabba**aabbaaba** : 8
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class test01 {
+	static public int solution(String s) {
+		int length = 0;
+		List<String> inputList = new ArrayList<>();
+		List<String> list = new ArrayList<>();
+		String varStr = "";
+		//String -> inputList
+		for(int k=0; k<s.length(); k++) {
+			inputList.add(s.charAt(k)+"");
+		}
+		//inputList ->> list(조건에 맞는)
+		for(int t=0; t<inputList.size(); t++) {
+			if(t>=3) {
+				if(inputList.get(t-2).equals(inputList.get(t-1)) && inputList.get(t-1).equals(inputList.get(t))) {
+					list.add(varStr);
+					varStr = varStr.substring(1);
+				}else {
+					varStr+=inputList.get(t);
+					if((t==inputList.size()-1)) {
+						list.add(varStr);
+					}
+				}
+			}else {
+				varStr+=inputList.get(t);
+			}
+		}
+		//list에서 max length 찾기
+		for(String var: list) {
+			if(var.length()>length) {
+				length = var.length();
+			}
+		}
+		return length;
+	}
+	public static void main(String[] args) {
+		//test param
+		String s = "babba";
+		int length = solution(s);
+		System.out.println(length);
+	}
+}
+```
