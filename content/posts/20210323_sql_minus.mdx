@@ -1,0 +1,25 @@
+---
+title: SQL - MINUS
+excerpt: |
+  Oracle sql에서 MINUS 쓰는법.
+author: content/authors/mingportal0.md
+date: 2021-03-22T00:00:00.000Z
+tags:
+  - database
+---
+
+B에 속하지 않은 A
+
+![](/uploads/image-20210323171456994.png)
+
+```sql
+SELECT *                                           
+FROM (                                             
+    SELECT *                                       
+    FROM muserm A MINUS (                          
+        SELECT m.* FROM sgroupuserlinkm g, muserm m
+        WHERE GROUPCODE = ?                        
+        AND g.USERID = m.USERID                    
+    )                                              
+)                               
+```
