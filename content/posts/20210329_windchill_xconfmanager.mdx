@@ -1,0 +1,24 @@
+---
+title: Windchill - xconfManager
+excerpt: |
+  Windchill에서 properties 파일을 관리하기 위해 xconfManager를 사용한다. 사용하는 방법은..
+author: content/authors/mingportal0.md
+date: 2021-03-29T00:00:00.000Z
+tags:
+  - windchill
+---
+
+Windchill에서 properties 파일을 직접 변경하면 문제가 생길 수 있다. xconfManager를 사용해 변경해야 한다.
+
+**xconf 파일**
+
+![](/uploads/image-20210329143819193.png)
+
+# 명령어
+
+* `xconfmanager -h` : help
+* `xconfmanager -d <property_names>` : property\_name 에 대한 정보를 본다.
+  ​	ex) `xconfmanager -d product.context.name`
+* `xconfmanager -s <property_name>=<property_value> -t <property_file> -p` : property\_name 의 value를 변경하고 targetFile(properties 파일)의 value를 변경한다.
+  ​	ex) `xconfmanager -s product.context.name=E3PS -t codebase\com\e3ps\eSolution.properties -p`
+* `xconfmanager -p` : 모든 xconf 변경 내용 properties에 적용. **(함부로 돌리면 모든 properties 파일이 변경되기 때문에 주의해야 한다.)**
