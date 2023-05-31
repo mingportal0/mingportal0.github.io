@@ -4,6 +4,8 @@ author: content/authors/mingportal0.md
 date: 2021-04-01T00:00:00.000Z
 tags:
   - java
+excerpt: |
+  Springboot 프로젝트에서 Thymeleaf 설정 방법. 태그 종류.
 ---
 
 # 의존성 추가
@@ -15,7 +17,7 @@ tags:
 </dependency>
 ```
 
-# `application.properties` 수정
+# application.properties 수정
 
 1. 템플릿 시작 위치 참조
 2. 템플릿 확장자 이름 참조
@@ -47,7 +49,7 @@ html xmlns 태그 추가
 </html>
 ```
 
-# th\:each
+# th each
 
 for문과 유사하게 작동된다.
 
@@ -63,8 +65,8 @@ for문과 유사하게 작동된다.
 	</thead>
 	<tbody>
 		<tr th:each="user : ${userList}">
-			<td th:text="${userStat.count}"></td>    
-			<td th:text="${user.email}"></td>    
+			<td th:text="${userStat.count}"></td>
+			<td th:text="${user.email}"></td>
 			<td th:text="${user.name}"></td>
 			<td th:text="${user.createStamp}"></td>
 		</tr>
@@ -81,7 +83,7 @@ for문과 유사하게 작동된다.
 5. userStat .event : 짝수 여부 (iterStat.odd : 홀수 여부)
 6. userStat .first : 처음 여부 (iterStat.last : 마지막 여부)
 
-# th\:object, `*{...}`
+# th object
 
 ```html
 <form action="#" th:action="@{/user/saveUserAction}" th:object="${user}" method="post" class="register">
@@ -92,14 +94,14 @@ for문과 유사하게 작동된다.
 </form>
 ```
 
-`{...}` 를 써서 `th:object`에 선언된 객체의 필드를 쓸 수 있다.
+`*{...}` 를 써서 `th:object`에 선언된 객체의 필드를 쓸 수 있다.
 
-# `#{...}`
+# message.properties 내 변수
 
 `message.properties`에 정의된 변수를 보여줄 수 있다.
 \[참고 URL]\[ https://victorydntmd.tistory.com/340]
 
-# `@{...}`
+# URL 표현
 
 URL을 표현할 때 쓰는 표현식
 
@@ -123,21 +125,21 @@ URL을 표현할 때 쓰는 표현식
 <a href="details.html" th:href="@{/order/{orderId}/details(orderId=${o.id})}">view</a>
 ```
 
-# th\:text
+# th text
 
 화면에 값을 출력할 때 사용한다.
-문자를 결합할 때 `|`를 사용할 수 있다.
+문자를 결합도 가능하다.
 
 ```html
 <span> th:text="'Welcome to our app, ' + ${user.name} + '!'|"></span>
 <span> th:text="|Welcome to our app, ${user.name}!|"></span>
 ```
 
-# th\:field
+# th field
 
 form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤러에서 `@ResponseBody`로 객체로 받을 떄 사용할 수 있다.
 
-# th\:if
+# th if
 
 조건문처럼 사용한다.
 
@@ -147,7 +149,7 @@ form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤�
 </div>
 ```
 
-# th\:errors
+# th errors
 
 조건문처럼 사용한다.
 
@@ -155,7 +157,7 @@ form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤�
 <p th:errors=*{pwCheck}>비밀번호가 일치하지 않습니다.</p>
 ```
 
-# th\:switch, th\:case
+# th switch, th case
 
 ```html
 <div th:switch="${user.role}">
@@ -165,7 +167,7 @@ form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤�
 </div>
 ```
 
-# th\:remove
+# th remove
 
 태그를 제거할 때 사용한다.
 
@@ -175,9 +177,9 @@ form 태그의 `th:object`로 지정한 객체와 같이 매핑되어 컨트롤�
 * all-but-first : 자식 태그 중 첫번째를 제외한 모든 태그 제거
 * none : 제거하지 않는다.
 
-# th\:action
+# th action
 
-form태그에서 `action="#"`와 같이 사용한다.
+form태그에서 `th:action="#"`와 같이 사용한다.
 
 ```html
 <form action="#" th:action="@{/user/saveUserAction}" th:object="${user}" method="post" class="register">
