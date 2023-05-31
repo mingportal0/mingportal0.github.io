@@ -1,0 +1,22 @@
+---
+title: Windchill - Data Loader
+excerpt: |+
+  Windchill에서 엑셀파일을 사용해 DB에 있는 데이터를 Migration할 때 Loader를 만들어서 돌리곤 하는데..
+
+author: content/authors/mingportal0.md
+date: 2021-03-29T00:00:00.000Z
+tags:
+  - windchill
+---
+
+1\. 메소드 서버가 동작하고 있어야 함.
+
+2\. Windchill Shell에서 입력.
+
+```shell
+windchill com.e3ps.load.CodeLoader %WT\_HOME%\loadFiles\e3ps\NumberCode\_class.xls <관리자ID> <관리자비번>
+```
+
+3\. 메소드 서버 디버깅.
+
+4\. DB 확인.
