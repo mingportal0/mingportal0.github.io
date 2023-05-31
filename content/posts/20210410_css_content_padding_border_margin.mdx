@@ -1,0 +1,212 @@
+---
+title: 'CSS - Content, Padding, Border, Margin'
+excerpt: |
+  CSS에서 Content, Padding, Border, Margin에 대해 알아보자.
+author: content/authors/mingportal0.md
+date: 2021-04-10T00:00:00.000Z
+tags:
+  - css
+---
+
+# Content, Padding, Border, Margin
+
+width와 height 프로퍼티를 비롯한 모든 박스모델 관련 프로퍼티(margin, padding, border, box-sizing 등)는 [상속](https://poiemaweb.com/css3-inheritance-cascading)되지 않는다.
+
+![css box model](/uploads/box-model.png)
+
+## Content
+
+요소의 텍스트나 이미지 등의 실제 내용이 위치하는 영역이다. width, height 프로퍼티를 갖는다.
+
+## Padding
+
+테두리(Border) 안쪽에 위치하는 요소의 내부 여백 영역이다. padding 프로퍼티 값은 패딩 영역의 두께를 의미하며 기본색은 투명(transparent)이다. 요소에 적용된 배경의 컬러, 이미지는 패딩 영역까지 적용된다.
+
+## Border
+
+테두리 영역으로 border 프로퍼티 값은 테두리의 두께를 의미한다.
+
+## Margin
+
+테두리(Border) 바깥에 위치하는 요소의 외부 여백 영역이다. margin 프로퍼티 값은 마진 영역의 두께를 의미한다. 기본적으로 투명(transparent)하며 배경색을 지정할 수 없다.
+
+# width, height
+
+너비, 높이. 만약 컨텐트 영역에 지정한 width, height 보다 실제 컨텐트가 넘치면 아래와 같이 넘치게 된다.
+
+![](/uploads/image-20210410212912156.png)
+
+`overflow: hidden;`으로 넘치면 안보이게 할 수도 있다.
+
+```css
+<style>
+    div {
+      width: 300px;
+      height: 100px;
+      background-color: cornsilk;
+      border: 5px solid navy;
+      overflow: hidden;
+    }
+  </style>
+```
+
+![](/uploads/image-20210410213053743.png)
+
+## max-width
+
+만약 요소 너비가 브라우저 너비 보다 클 경우 스크롤바가 만들어지는데 `max-width`를 써서 이를 방지할 수 있다.
+
+# margin, padding
+
+top, right, left, bottom 4방향으로 지정할 수 있다.
+
+`margin-top` 처럼 이렇게 따로 지정할 수도 있고
+
+```css
+margin-top: 40px;
+```
+
+`margin` 처럼 여러 개를 한번에 지정할 수도 있다.
+
+* 4개 : top, right, bottom, left (시계방향)
+
+```css
+margin: 25px 50px 75px 100px;
+```
+
+* 3개 : top, right-left, bottm
+
+```css
+margin : 25px 50px 75px;
+```
+
+* 2개 : top-bottom, right-left
+
+```css
+margin : 25px 50px;
+```
+
+* 1개 : all
+
+```css
+margin : 25px;
+```
+
+만약 `margin`을 `auto`로 지정하면 해당 요소를 브라우저 중앙에 위치 시킬 수 있다.
+
+```css
+<style>
+    div {
+      width: 300px;
+      height: 100px;
+      background-color: cornsilk;
+      border: 5px solid navy;
+      overflow: hidden;
+      margin: auto;
+    }
+  </style>
+```
+
+![](/uploads/image-20210410214101363.png)
+
+# border
+
+style, width, color를 한번에 지정할 수 있다.
+
+```css
+p {
+  /* border-width border-style border-color */
+  border: 5px solid red;
+}
+```
+
+## border-style
+
+여러 개를 한번에 지정할 수도 있다.
+
+```css
+p.groove { border-style: groove; }
+p.ridge  { border-style: ridge; }
+p.inset  { border-style: inset; }
+p.outset { border-style: outset; }
+p.none   { border-style: none; }
+p.hidden { border-style: hidden; }
+p.mix    { border-style: dotted dashed solid double; }
+```
+
+![](/uploads/image-20210410215235618.png)
+
+## border-width
+
+`border-style`이 있어야 지정할 수 있다.
+
+```css
+p {
+    border-style: solid
+}
+p.one {
+    border-width: thin; /* 1px */
+}
+p.two {
+    border-width: medium; /* 3px */
+}
+p.three {
+    border-width: thick; /* 5px */
+}
+p.four {
+    border-width: 15px;
+}
+p.five {
+    border-width: 2px 10px 4px 20px;
+}
+```
+
+![](/uploads/image-20210410215907467.png)
+
+## border-color
+
+`border-style`이 있어야 지정할 수 있다.
+
+## border-radius
+
+테두리 모서리를 둥글게 표현한다. 값은 `px, em, %`를 사용할 수 있다.
+
+```css
+.border-rounded {
+    /* 4 꼭지점에 대해 Radius 지정 */
+    border-radius: 5px;
+}
+.border-circle {
+    border-radius: 50%;
+}
+.border-football {
+    /* top-left/bottom-right, top-right/bottom-left */
+    border-radius: 15px 75px;
+}
+```
+
+![](/uploads/image-20210410220525796.png)
+
+# box-sizing
+
+width, height의 대상 영역을 변경할 수 있다.
+
+* content-box : content 영역 까지 width, height 지정 가능
+* border-box : padding 영역 까지 width, height 지정 가능
+
+![box-sizing](/uploads/box-sizing.png)
+
+box-sizing을 border-box로 지정하려면 아래와 같이 초기화해야 한다.
+
+```css
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+```
+
+# 참고
+
+[참고 URL](https://poiemaweb.com/css3-box-model)
