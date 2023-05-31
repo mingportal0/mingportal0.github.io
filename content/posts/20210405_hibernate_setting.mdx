@@ -1,7 +1,7 @@
 ---
 title: Hibernate 설정
 excerpt: |
-  Springboot 프로젝트에 Hibernate 세팅하는 방법.
+  Springboot 프로젝트에 Hibernate 세팅하는 방법. Hibernate 관련 application.properties 설정.
 author: content/authors/mingportal0.md
 date: 2021-04-05T00:00:00.000Z
 tags:
@@ -138,3 +138,19 @@ id의 기본값을 `AUTO_INCREMENT`로 바꿔준다.
 정상적으로 데이터가 입력되었다!
 
 ![](/uploads/image-20210405141443954.png)
+
+# application.properties 설정
+
+```
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
+spring.jpa.properties.hibernate.show_sql=true
+spring.jpa.properties.hibernate.format_sql=true
+spring.jpa.properties.hibernate.use_sql_comments=true
+logging.level.org.hibernate.type.descriptor.sql=trace
+```
+
+* dialect로 MariaDBDialect 추가 (JPA에 MariaDB 사용을 명시함.)
+* log에 sql문 추가
+* sql문을 보기 좋게 출력
+* sql문 이외 추가적인 정보 출력
+* sql문의 bind Parameter 출력
