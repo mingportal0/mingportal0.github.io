@@ -1,0 +1,24 @@
+---
+title: Windchill - 페이징
+excerpt: |
+  Windchill에서 페이징을 구현할 때 참고할 코드.
+author: content/authors/mingportal0.md
+date: 2021-03-24T00:00:00.000Z
+tags:
+  - windchill
+---
+
+```java
+String sessionId = StringUtil.checkNull((String) reqMap.get("sessionId"));
+	    
+PagingQueryResult result = null;
+
+if (sessionId.length() > 0) {
+	result = PagingSessionHelper.fetchPagingSession(start, count, Long.valueOf(sessionId));
+} else {
+	CompoundQuerySpec query = distributeItemCommonQuery(reqMap, false);
+	query.setAdvancedQueryEnabled(true);
+
+	result = PageQueryBroker.openPagingSession(start, count, query, true);
+}
+```
