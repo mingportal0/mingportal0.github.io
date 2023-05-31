@@ -1,0 +1,162 @@
+---
+title: Springboot와 MariaDB 연결
+excerpt: |
+  Springboot와 MariaDB 연결하는 방법..
+author: content/authors/mingportal0.md
+date: 2021-04-01T00:00:00.000Z
+tags:
+  - database
+  - java
+---
+
+# 의존성 추가
+
+```xml
+<dependency>
+	<groupId>org.springframework.boot</groupId>
+	<artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.mariadb.jdbc</groupId>
+	<artifactId>mariadb-java-client</artifactId>
+</dependency>		
+```
+
+# application.properties 수정
+
+```
+spring.datasource.driverClassName=org.mariadb.jdbc.Driver
+spring.datasource.url=jdbc:mariadb://DB-Server-IP:3306/DB-Name?characterEncoding=UTF-8&serverTimezone=UTC
+spring.datasource.username=DB-USER-Name
+spring.datasource.password=DB-USER-Password
+```
+
+# Dao 작성
+
+```java
+@Repository
+public class UserDao {
+	@Autowired
+	JdbcTemplate jdbc;
+	
+	public List<MUser> getUserList(){
+		
+		StringBuffer sql = new StringBuffer();
+		sql.append(" Select * ");
+		sql.append(" from MUSER ");
+		
+		return jdbc.query(sql.toString(), (rs, rowNum) -> {
+			MUser user = new MUser();
+			user.setOid(rs.getString("oid"));  
+			user.setEmail(rs.getString("email"));  
+			user.setPw(rs.getString("pw"));  
+			user.setName(rs.getString("name")); 
+			user.setPhone(rs.getString("phone"));
+			user.setCreateStamp(rs.getTimestamp("createstamp")); 
+			user.setCreator(rs.getString("creator")); 
+			user.setModifyStamp(rs.getTimestamp("modifystamp")); 
+			user.setModifier(rs.getString("modifier")); 
+			user.setIsEnabled(rs.getInt("isenabled")); 
+			user.setIsDeleted(rs.getInt("isdeleted")); 
+			return user;
+		});
+	}
+}
+```
+
+# 컨트롤러 작성
+
+```java
+@Controller
+public class UserController {
+	@Autowired
+	UserDao userDao;
+	
+	@RequestMapping("/getUserList") 
+	public List<MUser> getUserList() { 
+		return userDao.getUserList(); 
+	}
+	
+	@RequestMapping("/searchUser") 
+	public ModelAndView searchUser() {
+		ModelAndView model = new ModelAndView();
+		model.addObject("userList", userDao.getUserList());
+		model.setViewName("user/searchUser");
+		return model; 
+	}
+}
+```
+
+# 뷰 작성
+
+Thymeleaf를 이용해 만들었다.
+
+```html
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SearchUser Page</title>
+</head>
+<body>
+	<table id="userTable">
+		<thead>
+			<tr>
+				<th>Email</th>
+				<th>Name</th>
+				<th>CreateDate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="user : ${userList}">
+				<td th:text="${user.email}">email</td>    
+				<td th:text="${user.name}">name</td>
+				<td th:text="${user.createStamp}">createStamp</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
+
+```
+
+# 테스트
+
+오류가 발생했다...
+
+```shell
+Whitelabel Error Page
+
+This application has no explicit mapping for /error, so you are seeing this as a fallback.
+
+Thu Apr 01 14:56:25 KST 2021
+
+There was an unexpected error (type=Internal Server Error, status=500).
+
+Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Could not connect to HostAddress{host='DB-Server-IP', port=3306, type='master'}. Host 'mjroh' is not allowed to connect to this MariaDB server
+
+org.springframework.jdbc.CannotGetJdbcConnectionException: Failed to obtain JDBC Connection; nested exception is java.sql.SQLNonTransientConnectionException: Could not connect to HostAddress{host='DB-Server-IP', port=3306, type='master'}. Host 'mjroh' is not allowed to connect to this MariaDB server
+```
+
+해결법 : [참고 URL](https://java119.tistory.com/61)
+
+해당 에러는 DB를 외부에서 접속 시 발생할 때 보안 상 권한이 없기 떄문에 발생한다고 한다.
+
+DB서버의 HeidiSQL로 접속해서 해당 쿼리를 날려보면 현재 권한을 볼 수 있다.
+
+```sql
+select Host,User,plugin,authentication_string FROM mysql.user;
+```
+
+모든 IP 허용으로 변경하였다.
+
+```sql
+GRANT ALL PRIVILEGES ON *.* TO 'DB-USER-Name' IDENTIFIED BY 'DB-USER-Password';
+```
+
+# 다시 테스트
+
+css를 안입혀 모양은 안이쁘지만 제대로 출력되었다!
+
+![](/uploads/image-20210401165829315.png)
