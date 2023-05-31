@@ -1,0 +1,116 @@
+---
+title: Spring Security 연습3
+excerpt: |
+  Spring Security를 자바 프로젝트에 적용하는 세번째 포스팅.  회원가입 기능 추가.
+author: content/authors/mingportal0.md
+date: 2021-04-05T00:00:00.000Z
+tags:
+  - java
+---
+
+# 회원가입 추가
+
+먼저 UserController에서 passwordEncoder를 추가하였는데 서버를 올리면 에러가 난다.
+
+```java
+@Autowired
+	private PasswordEncoder passwordEncoder;
+```
+
+에러메세지
+
+```shell
+Field passwordEncoder in com.mjroh.boot.user.controller.UserController required a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'org.springframework.security.crypto.password.PasswordEncoder' in your configuration.
+```
+
+해결방법은 SecurityConfig에 passwordEncoder를 Bean으로 추가하는 것이다.
+
+```java
+@Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+```
+
+그리고 saveUserAction 메소드를 추가하였다. 사용자가 입력한 비밀번호를 암호화하여 DB에 저장하고 로그인 페이지로 이동하였다.
+
+```java
+@RequestMapping(value = "/saveUserAction")
+	@ResponseBody
+	public ModelAndView saveUserAction(MUser doc){
+		ModelAndView model = new ModelAndView();
+		
+		//save
+		doc.setPw(passwordEncoder.encode(doc.getPw()));
+		userDao.save(doc);
+		
+		//redirect login page
+		model.setViewName("login");
+		return model;
+	}
+```
+
+로그인 화면에 회원가입 버튼을 추가하고
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login Page</title>
+</head>
+<body>
+<form action="/loginAction" method="POST">
+	<div><p>Login</p></div>
+	<div><input type="text" id="email" name="email" placeholder="e-mail"/></div>
+	<div><input type="password" id="pw" name="pw" placeholder="password"/></div>
+	<div><input type="submit" value="sign-in"/></div>
+	<div><a href="/user/saveUser">회원가입</a></div>
+</form>
+</body>
+</html>
+```
+
+이렇게 만든 뒤 회원가입을 테스트하는데 자꾸 DB에 값이 들어가지 않고 로그인페이지로 이동하였다. 
+
+왜 그런가 했더니.. 회원가입 url 및 회원가입 액션 url을 허용해야 한다는 것을 까먹었었던 것이다.
+
+SecurityConfig에서 configure를 수정해서 회원가입 url 및 회원가입 액션 url을 허용하였다.
+
+```java
+@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		........
+			//saveUser 허용
+			.antMatchers("/user/saveUser", "/user/saveUserAction")
+				.permitAll()
+			......
+```
+
+허용할 것을 화면 뿐만 아니라 여러가지 액션이 있다는 걸 잘 생각해야지..
+
+# 테스트
+
+로그인 페이지에서 회원가입 페이지로 이동
+
+![](/uploads/image-20210407110021292.png)
+
+회원가입 페이지에서 데이터 입력 후 회원가입 버튼을 누르면
+
+![](/uploads/image-20210407110129311.png)
+
+DB에 잘 들어가는 것을 볼 수 있다. 비번은 암호화 기능을 추가함에 따라 크기를 늘려줬다.
+
+![](/uploads/image-20210407110223649.png)
+
+# 참고 글
+
+[참고 URL](https://galid1.tistory.com/700?category=791456)
