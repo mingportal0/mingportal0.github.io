@@ -3,7 +3,7 @@ title: Windchill - QuerySpec2
 excerpt: |
   Windchill의 QuerySpec에 대해 정리의 두번째 포스팅.
 author: content/authors/mingportal0.md
-date: 2021-05-25T00:00:00.000Z
+date: 2021-05-26T00:00:00.000Z
 tags:
   - windchill
 ---
@@ -70,7 +70,7 @@ QuerySpec은 `toString()`으로 실제 쿼리문을 볼 수 있다.
 out.print(qs.toString());
 ```
 
-## toString() 결과
+## toString 결과
 
 위 QuerySpec의 `toString()`은 다음과 같다.
 
@@ -82,7 +82,7 @@ SELECT A0.* FROM WTDocument A0;
 
 # alias
 
-alias를 활용해 좀 더 복잡한 쿼리를 만들어보자. (아래 `B0.idA3D2iterationInfo`는 WTDocument 테이블의 creator\_id 이다.)
+alias를 활용해 좀 더 복잡한 쿼리를 만들어보자. (아래 `B0.idA3D2iterationInfo`는 WTDocument 테이블의 creator id 이다.)
 
 아래 쿼리를 가지고 QuerySpec을 만들면..
 
@@ -143,7 +143,7 @@ WHERE A0.idA3D2iterationInfo = 11
 
 ## SearchCondition(ClassAttribute, 연산자, ClassAttribute)
 
-ClassAttribute 끼리 연산자로 비교하는 형태인데 Outer-Join과 같이 `=`﻿ 가 아닌 연산자를 사용할 때 쓰인다.
+ClassAttribute 끼리 연산자로 비교하는 형태인데 Outer-Join과 같이 '=' 아닌 연산자를 사용할 때 쓰인다.
 
 ```java
 QuerySpec qs = new QuerySpec();
@@ -199,19 +199,19 @@ WHERE A0.idA3D2iterationInfo IN (SELECT A0.idA2A2 FROM WTUser A0)
 
 ## Inner-Join
 
-SearchCondition(Persistable-class,  columName, Persistable-class,  columName) 형태가 사용된다.
+`SearchCondition(Persistable-class,  columName, Persistable-class,  columName)` 형태가 사용된다.
 
 ## Outer-Join
 
-LEFT\_OUTER\_JOIN과 RIGHT\_OUTER\_JOIN이 있다.
+LEFT OUTER JOIN과 RIGHT OUTER JOIN이 있다.
 
-### LEFT\_OUTER\_JOIN
+### LEFT OUTER JOIN
 
-SearchCondition(ClassAttribute, SearchCondition.LEFT\_OUTER\_JOIN, ClassAttribute) 형태가 사용된다.
+`SearchCondition(ClassAttribute, SearchCondition.LEFT_OUTER_JOIN, ClassAttribute)` 형태가 사용된다.
 
-### RIGHT\_OUTER\_JOIN
+### RIGHT OUTER JOIN
 
-SearchCondition(ClassAttribute, SearchCondition.RIGHT\_OUTER\_JOIN, ClassAttribute) 형태가 사용된다.
+`SearchCondition(ClassAttribute, SearchCondition.RIGHT_OUTER_JOIN, ClassAttribute)` 형태가 사용된다.
 
 # SQLFunction
 
