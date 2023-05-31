@@ -1,0 +1,66 @@
+---
+title: Windchill - 정책관리
+excerpt: |
+  Windchill의 정책관리에서는 도메인, 컨텍스트, 엑세스 제어 규칙 등을 알아야 한다.
+author: content/authors/mingportal0.md
+date: 2021-03-11T00:00:00.000Z
+tags:
+  - windchill
+---
+
+# 정책관리
+
+경로 : `사이트 - 유틸리티 - 정책관리`
+도메인에 대한 액세스 제어, 색인 및 공지 정책을 관리한다.
+참고 URL : [https://support.ptc.com/help/windchill/wc110\_hc/whc\_ko/#page/Windchill\_Help\_Center%2FTeamDefine.html%23](https://support.ptc.com/help/windchill/wc110_hc/whc_ko/#page/Windchill_Help_Center%2FTeamDefine.html%23)
+
+# 컨텍스트
+
+아래 모두 컨텍스트가 될 수 있다.
+프로젝트와 프로그램은 Windchill ProjectLink에서 사용하는 컨텍스트.
+
+![](/uploads/PolicyAdmin_ContextHierarchy.gif)
+
+# 도메인
+
+위 컨텍스트를 사용하여 도메인을 만들 수 있다. 보통 컨텍스트를 만들면 도메인이 세트로 만들어지며 정책관리에서 도메인을 새로 만들어 관리 할 수 있다.
+
+![](/uploads/image-20210430094741734.png)
+
+아래와 같이 컨텍스트를 사용해 도메인을 만들 수 있다.
+
+![](/uploads/image-20210430094808485.png)
+
+## 참고) 폴더 도메인 표시 방법
+
+`사이트 - 유틸리티 - 기본설정관리 - 보안 - 폴더`의 도메인 표시를 '예'로 변경.
+폴더 속성에서 도메인을 확인할 수 있다.
+
+# 엑세스 제어 규칙
+
+도메인에 따라서 자동적으로 아래와 같이 엑세스 제어 규칙이 만들어 진다.
+
+![](/uploads/image-20210311180423547.png)
+
+Windchill 객체를 사용하여 새로운 엑세스 제어 규칙을 만들 수 있다.
+절대적 거부의 경우 다른 권한에 비해 최우선적으로 작동하기 때문에 유의해야 한다.
+
+# 동적 역할 사용
+
+## 사이트
+
+`wt.project.RoleRB.rbInfo` 파일을 변경하여 사용할 수 있다.
+
+## 조직
+
+조직 컨텍스트의 역할 탭에서 변경할 수 있다. 역할 테이블에서 표시된 역할은 사이트 컨텍스트에서 상속된다. 역할은 자동적으로 추가된다.
+
+## 제품
+
+제품의 팀 탭의 멤버 테이블에서 관리할 수 있다. 
+
+해당 역할의 멤버로 포함된 참여자는 엑세스 제어 규칙 상 권한을 가진다. 
+
+이 권한은 해당 컨텍스트의  도메인이 속한 객체에만 적용된다. 그래서 권한 이슈가 생기면 해당 객체의 도메인을 확인한다.
+
+![](/uploads/DaCapture_20210311-17483603.png)
