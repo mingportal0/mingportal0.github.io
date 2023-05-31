@@ -1,0 +1,56 @@
+---
+title: Eclipse 초기 세팅
+excerpt: |
+  자바 프로젝트 세팅할 때 Eclipse 초기 세팅.
+author: content/authors/mingportal0.md
+date: 2023-05-15T15:00:00.000Z
+tags:
+  - java
+---
+
+# Eclipse ini파일 설정
+
+```ini
+exlipse.ini
+-Xms256m
+-Xmx2048m
+-Duser.name=mjroh
+```
+
+# Preferences 설정
+
+## Heap 메모리 표시
+
+`Window - Preferences - General`
+
+## 주석
+
+`Window - Preferences - Java - Code Style - Code Templates`
+
+### File
+
+```java
+/**
+  * @FileName : ${file_name}
+  * @Project : ${project_name}
+  * @Date : ${date}
+  * @작성자 : ${user}
+  * @프로그램 설명 : 
+  */
+```
+
+### Method
+
+```java
+/**
+  * @Method Name : ${enclosing_method}
+  * @작성일 : ${date}
+  * @작성자 : ${user}
+  * @Method 설명 : 
+  * ${tags}
+  */
+```
+
+# 형상관리툴(SVN/GIT) 사용자 지정
+
+SVN/GIT 추가하고 아이디, 비번 세팅 (까먹어서 다른 사람꺼로 커밋치면 안됨.)
