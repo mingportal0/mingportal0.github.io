@@ -1,99 +1,277 @@
 ---
-title: 임의의 배열 만들기
+title: Windchill - QuerySpec 2
 excerpt: |
-  주어진 3개의 파람을 이용하여 2개의 행을 가진 배열을 나타내는 문자열을 리턴하는 메소드를 만들어라.
-  리턴은 윗행,아랫행 같이 문자열로 한다. 구할 수 없다면 IMPOSSIBLE 을 리턴한다.
-  예로 출력 배열이 `outArr={1,2,1,0}{0,1,0,1}` 이면 `1210,0101` 같이 리턴해야 한다.
+  Windchill의 QuerySpec에 대해 정리의 두번째 포스팅.
 author: content/authors/mingportal0.md
-date: '2019-08-31T15:00:00.000Z'
+date: 2021-05-25T00:00:00.000Z
 tags:
-  - 코딩테스트
-  - java
+  - windchill
 ---
 
+# QuerySpec
 
-# 문제
-
-주어진 3개의 파람을 이용하여 2개의 행을 가진 배열을 나타내는 문자열을 리턴하는 메소드를 만들어라.<br />
-리턴은 윗행,아랫행 같이 문자열로 한다. 구할 수 없다면 IMPOSSIBLE 을 리턴한다.<br />
-예로 출력 배열이 `outArr={1,2,1,0}{0,1,0,1}` 이면 "1210,0101" 같이 리턴해야 한다.<br />
-
-## 출력 메소드 예시
-
-`public String solution(int u, int l, int[] c){}`
-
-## param
-
-* u : 숫자. 배열의 첫번째 행 합.
-* l : 숫자. 배열의 두번째 행 합.
-* c : 배열 . 배열의 각 열의 합을 나타낸 배열.
-
-# 풀이
+QuerySpec은 객체를 생성 후 사용한다.
 
 ```java
-package com.ehr.east;
+QuerySpec qs = new QuerySpec();
+```
 
-public class test03 {
-	static public String solution(int u, int l, int[] c) {
-		// write your code in Java SE 8
-		String uStr = "";
-        String lStr = "";
-        int tmpUp = u;
-        int tmpDown = l;
-        int[] intArr = new int[c.length];
-        for(int n=0; n<c.length; n++){
-            switch(c[n]){
-                case 0:
-                    intArr[n] = 0;
-                    break;
-                case 2:
-                    intArr[n] = 1;
-                    tmpUp -= 1;
-                    tmpDown -= 1;
-                    break;
-                case 1:
-                    intArr[n] = 7;
-                    break;
-            }
-        }
-        for(int t=0; t<intArr.length; t++){
-            switch(intArr[t]){
-                case 7:
-                    if(tmpUp>0){
-                        uStr += "1";
-                		lStr += "0";
-                		tmpUp -= 1;
-                    }else{
-                        uStr += "0";
-                		lStr += "1";
-                		tmpDown -= 1;
-                    }
-                    break;
-                default:
-                    uStr += intArr[t];
-                	lStr += intArr[t];
-                    break;
-            }
-        }
-        System.out.println(uStr);
-        System.out.println(lStr);
-        int upVar = 0;
-        int downVar = 0;
-        for(int n=0; n<c.length; n++){
-        	upVar += Integer.parseInt(uStr.charAt(n)+"");
-        	downVar += Integer.parseInt(lStr.charAt(n)+"");
-        }
-        if(u!=upVar || l!=downVar) {
-        	return "IMPOSSIBLE";
-        }
-        return uStr+","+lStr;
-	}
-	public static void main(String[] args) {
-		int U = 2;
-		int L = 3;
-		int[] C = {0,1,1,2};
-		String output = solution(U,L,C);
-		System.out.println(output);
-	}
+밑에는 자주 쓰이는 것 위주로 정리하였다.
+
+## appendClassList, FROM
+
+다음의 쿼리를 쿼리스펙으로 만든다면??
+
+```sql
+SELECT * FROM WTDocument;
+```
+
+### 방법 1 - 생성자 활용
+
+```java
+QuerySpec qs = new QuerySpec(WTDocument.class);
+```
+
+### 방법 2 - appendClassList
+
+`addClassList()`도 쓸 수 있지만 `appendClassList()`를 쓰는 것이 좋다.
+
+```java
+QuerySpec qs = new QuerySpec();
+qs.appendClassList(WTDocument.class, true);
+```
+
+위와 같이 두 가지로 만들 수 있지만 쿼리 결과를 활용할 때 차이점이 있다.
+
+### 방법 1의 경우
+
+```java
+QueryResult qr = PersistenceHelper.manager.find(qs);
+while(qr.hasMoreElements()){
+	WTDocument doc = (WTDocument) qr.nextElement();
 }
+```
+
+### 방법 2의 경우
+
+```java
+QueryResult qr = PersistenceHelper.manager.find(qs);
+while(qr.hasMoreElements()){
+	Object[] obj = (Object[]) qr.nextElement();
+	WTDocument doc = (WTDocument) obj[0];
+}
+```
+
+# toString, 실제 쿼리문 보기
+
+QuerySpec은 `toString()`으로 실제 쿼리문을 볼 수 있다.
+
+```java
+out.print(qs.toString());
+```
+
+## toString() 결과
+
+위 QuerySpec의 `toString()`은 다음과 같다.
+
+결과를 보면 `appendClassList`했던 순서에 따라 A0로 alias가 매겨지는 것을 확인할 수 있다.
+
+```sql
+SELECT A0.* FROM WTDocument A0;
+```
+
+# alias
+
+alias를 활용해 좀 더 복잡한 쿼리를 만들어보자. (아래 `B0.idA3D2iterationInfo`는 WTDocument 테이블의 creator id 이다.)
+
+아래 쿼리를 가지고 QuerySpec을 만들면..
+
+```sql
+SELECT * FROM WTDocument B0, WTUser B1
+WHERE B0.idA3D2iterationInfo = B1.ida2a2;
+```
+
+## QuerySpec
+
+아래와 같이 만들 수 있다.
+
+아래와 같이 `qs.getFromClause().setAliasPrefix()`를 써서 alias를 직접 지정할 수도 있다.
+
+참고로 `new int[]{doc_idx, user_idx}` 는 `new int[]{0, 1}`로 바꿀 수도 있다.
+
+```java
+QuerySpec qs = new QuerySpec();
+qs.getFromClause().setAliasPrefix("B");
+int doc_idx = qs.appendClassList(WTDocument.class, true);
+int user_idx = qs.appendClassList(WTUser.class, true);
+qs.appendWhere(
+		new SearchCondition(
+				WTDocument.class, WTDocument.CREATOR + ".key.id", 
+				WTUser.class, WTUser.PERSIST_INFO + ".theObjectIdentifier.id"), 
+		new int[]{doc_idx, user_idx});
+```
+
+# SearchCondition
+
+## SearchCondition(Persistable-class,  columName, Persistable-class,  columName)
+
+방금 전 예시에서 봤던 형태이다. 쿼리로는 `A0.idA3D2iterationInfo = A1.ida2a2` 와 같이 나타낼 수 있겠다. inner-join을 할 때 자주 쓰인다.
+
+## SearchCondition(Persistable-class,  columName, 연산자, 피연산자)
+
+하나의 테이블의 컬럼을 비교할 때 쓰인다.
+
+```java
+QuerySpec qs = new QuerySpec();
+int doc_idx = qs.appendClassList(WTDocument.class, true);
+qs.appendWhere(
+    new SearchCondition(
+        WTDocument.class, WTDocument.CREATOR + ".key.id", 
+        SearchCondition.EQUAL, new Long(11)), 
+  new int[]{0});
+```
+
+### SQL
+
+위 QuerySpec은 아래와 같은 쿼리로 나타낼 수 있다.
+SearchCondition은 `A0.idA3D2iterationInfo = 11` 부분을 만들 때 쓰인 것을 알 수 있다.
+
+```sql
+SELECT A0.* FROM WTDocument A0 
+WHERE A0.idA3D2iterationInfo = 11
+```
+
+## SearchCondition(ClassAttribute, 연산자, ClassAttribute)
+
+ClassAttribute 끼리 연산자로 비교하는 형태인데 Outer-Join과 같이 '=' 가 아닌 연산자를 사용할 때 쓰인다.
+
+```java
+QuerySpec qs = new QuerySpec();
+int doc_idx = qs.appendClassList(WTDocument.class, true);
+int user_idx = qs.appendClassList(WTUser.class, true);
+qs.appendWhere(
+    new SearchCondition(
+        new ClassAttribute(WTDocument.class, WTDocument.CREATOR + ".key.id"), 
+        SearchCondition.NOT_EQUAL, 
+        new ClassAttribute(WTUser.class, WTUser.PERSIST_INFO + ".theObjectIdentifier.id")), 
+    new int[]{doc_idx, user_idx});
+```
+
+### SQL
+
+위 QuerySpec은 아래와 같은 쿼리로 나타낼 수 있다.
+SearchCondition은 `A0.idA3D2iterationInfo <> A1.idA2A2` 부분을 만들 때 쓰인 것을 알 수 있다.
+
+```sql
+SELECT A0.*,A1.* FROM WTDocument A0, WTUser A1 
+WHERE A0.idA3D2iterationInfo <> A1.idA2A2
+```
+
+## SearchCondition(ClassAttribute, 연산자, SubSelectExpression)
+
+이전에 봤던 ClassAttribute 대신 SubSelectExpression를 쓴 형태인데 서브쿼리를 사용하고 싶을 때 사용한다.
+
+```java
+QuerySpec subQs = new QuerySpec();
+int user_idx = subQs.appendClassList(WTUser.class, false);
+subQs.appendSelect(new ClassAttribute(WTUser.class, WTUser.PERSIST_INFO + ".theObjectIdentifier.id"), true);
+
+QuerySpec qs = new QuerySpec();
+int doc_idx = qs.appendClassList(WTDocument.class, true);
+qs.appendWhere(
+    new SearchCondition(
+        new ClassAttribute(WTDocument.class, WTDocument.CREATOR + ".key.id"), 
+        SearchCondition.IN, new SubSelectExpression(subQs)), 
+    new int[]{0});
+```
+
+### SQL
+
+위 QuerySpec은 아래와 같은 쿼리로 나타낼 수 있다.
+SearchCondition은 `A0.idA3D2iterationInfo IN (SELECT A0.idA2A2 FROM WTUser A0)` 부분을 만들 때 쓰인 것을 알 수 있고 `SubSelectExpression` 는 서브쿼리를 만들 때 쓰였다는 것을 알 수 있다.
+
+```sql
+SELECT A0.* FROM WTDocument A0 
+WHERE A0.idA3D2iterationInfo IN (SELECT A0.idA2A2 FROM WTUser A0)
+```
+
+# Join
+
+## Inner-Join
+
+SearchCondition(Persistable-class,  columName, Persistable-class,  columName) 형태가 사용된다.
+
+## Outer-Join
+
+LEFT\_OUTER\_JOIN과 RIGHT\_OUTER\_JOIN이 있다.
+
+### LEFT\_OUTER\_JOIN
+
+SearchCondition(ClassAttribute, SearchCondition.LEFT\_OUTER\_JOIN, ClassAttribute) 형태가 사용된다.
+
+### RIGHT\_OUTER\_JOIN
+
+SearchCondition(ClassAttribute, SearchCondition.RIGHT\_OUTER\_JOIN, ClassAttribute) 형태가 사용된다.
+
+# SQLFunction
+
+SQL 기본 내장함수 MAX, COUNT, UPPER, DECODE 등을 사용할 때 쓰인다.
+
+```java
+QuerySpec qs = new QuerySpec();
+int idxA = qs.appendClassList(WTDocument.class, false);
+ClassAttribute name = new ClassAttribute(WTDocument.class, WTDocument.TITLE, "A0");
+SQLFunction max = SQLFunction.newSQLFunction("UPPER", name);
+qs.appendSelect(max, false);
+```
+
+### SQL
+
+위 QuerySpec은 아래와 같은 쿼리로 나타낼 수 있다. UPPER 함수가 사용되었다.
+
+```sql
+SELECT UPPER(A0.title) FROM WTDocument A0
+```
+
+# Sort
+
+SQL에서 Order By와 같은 정렬을 사용하고 싶을 때 쓰인다.
+
+```java
+QuerySpec qs = new QuerySpec();
+int idxA = qs.appendClassList(WTDocument.class, true);
+qs.appendOrderBy(new OrderBy(new ClassAttribute(WTDocument.class, WTDocument.TITLE), false), new int[] { idxA });
+```
+
+### SQL
+
+위 QuerySpec은 아래와 같은 쿼리로 나타낼 수 있다.
+
+```sql
+SELECT A0.* FROM WTDocument A0 ORDER BY A0.title
+```
+
+# Navigate
+
+링크테이블의 role 중 하나로 다른 role를 가져오고 싶을 때 쓰인다.
+
+전에 알아본 방법과 같이 조인을 활용해 조회할 수 있지만 더 간략한 코드로 데이터를 가져올 수 있다. 꽤 `navigate()`가 쓰이기 때문에 코드를 읽을 줄 알려면 무엇인지 알아야 한다.
+아래와 같이 QueryResult로 받을 때 WTUser로 바로 받을 수 있다.
+
+```java
+WTPartMaster master = (WTPartMaster) CommonUtil.getObject("wt.part.WTPartMaster:1182143");
+QueryResult qr = PersistenceHelper.manager.navigate(master, "roleA", MasterACLWTUserLink.class);
+while(qr.hasMoreElements()){
+	WTUser doc = (WTUser) qr.nextElement();
+}
+```
+
+### SQL
+
+위 QuerySpec의 `navigate()`는 아래와 같은 쿼리로 나타낼 수 있다.
+
+```sql
+SELECT A1.* FROM MasterACLWTUserLink A0, WTUser A1
+WHERE A0.ida3a5 = A1.ida2a2
+AND A0.ida3b5 = '1182143'
 ```
