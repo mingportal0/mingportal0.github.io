@@ -1,0 +1,55 @@
+---
+title: Spring Security 연습4
+excerpt: |
+  Spring Security를 자바 프로젝트에 적용하는 방법의 네번째 포스팅. 
+author: content/authors/mingportal0.md
+date: 2021-04-07T00:00:00.000Z
+tags:
+  - java
+---
+
+# DB 유저로 로그인
+
+UserRepository에 유저 이메일로 유저를 찾는 메소드를 추가한다. UserRepository는 Entity와 같이 두는게 좋다는 글을 봐서 같은 위치에 두었다.
+
+```java
+public interface UserRepository extends JpaRepository<MUser, Long>{
+	Optional<MUser> findByEmail(String email);
+}
+```
+
+JpaRepository에서는 `Optional<MUser> findByEmail(String email)` 로 작성된 메소드를 추론해 `select * from MUSER where email = ?` 와 같은 역할을 하는 Read 메소드를 만들어준다. (실제 로그를 보면 좀 더 긴 SQL문이지만 맥락은 이렇다.)
+
+그리고 위 메소드를 사용해 서비스를 작성한다.
+
+```java
+@Service
+public class UserService implements UserDetailsService{
+
+	@Autowired
+	private UserRepository userRepository;
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		MUser user = userRepository.findByEmail(username).orElseThrow(() -> 
+			new IllegalArgumentException("존재하지 않는 유저입니다."));
+		return new User(user.getEmail(), user.getPw(), Arrays.asList(new SimpleGrantedAuthority(user.getRole())));
+	}
+}
+```
+
+UserDetailsService를 구현하면 loadUserByUsername를 오버라이드해야 하는데 위에서 만든 findByEmail를 사용해 결과가 없으면 "존재하지 않는 유저입니다."라고 에러가 나도록 하였다. 유저가 있으면 스프링 시큐리티의 UserDetails을 구현한 User를 리턴하도록 하였다.
+
+# 테스트
+
+로그인 화면에서 DB에 있는 유저의 아이디와 비번을 입력하면
+
+![](/uploads/image-20210407110021292.png)
+
+전에 만들었던 메인 페이지로 이동한다.
+
+![](/uploads/image-20210407111902361.png)
+
+# 참고 글
+
+[참고 URL](https://galid1.tistory.com/700?category=791456)
