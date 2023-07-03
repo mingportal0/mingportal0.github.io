@@ -8,7 +8,7 @@ import Opengraph from '../components/util/opengraph'
 export default function HomePage(
   props: AsyncReturnType<typeof getStaticProps>['props']
 ) {
-  const posts = props.data.postConnection.edges.slice(0, 5)
+  const posts = props.data.postConnection.edges
   const mainTitle = 'Main'
 
   return (

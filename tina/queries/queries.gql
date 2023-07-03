@@ -16,35 +16,6 @@ query pageQuery {
         }
       }
     }
-    pageInfo {
-      hasPreviousPage
-      endCursor
-    }
-  }
-}
-
-query pageQueryNext($id: String) {
-  ...LayoutQueryFragment
-  postConnection(sort: "date", last: 10, after: $id) {
-    edges {
-      node {
-        id
-        _values
-        date
-        author {
-          ... on Author {
-            ...AuthorParts
-          }
-        }
-        _sys {
-          filename
-        }
-      }
-    }
-    pageInfo {
-      hasPreviousPage
-      endCursor
-    }
   }
 }
 
