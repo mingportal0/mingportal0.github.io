@@ -16,35 +16,37 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
     orange: 'group-hover:text-orange-600 dark:group-hover:text-orange-300',
     yellow: 'group-hover:text-yellow-500 dark:group-hover:text-yellow-300',
   }
-  const NOLABEL = "미분류"
-  const tags = [];
+  const NOLABEL = '미분류'
+  const tags = []
   data.map((tagData) => {
     const tagNode = tagData.node.tags
-    if(tagNode != null){
-      tagNode.map(t => {
-        if(!tags.includes(t)){
-          tags.push(t);
+    if (tagNode != null) {
+      tagNode.map((t) => {
+        if (!tags.includes(t)) {
+          tags.push(t)
         }
       })
-    }else{
-      if(!tags.includes(NOLABEL)){
-        tags.push(NOLABEL);
+    } else {
+      if (!tags.includes(NOLABEL)) {
+        tags.push(NOLABEL)
       }
     }
   })
-  tags.sort();
+  tags.sort()
 
   const tagStyle = {
-    default: "rounded-md px-2 py-2 shadow-sm transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-1000 dark:hover:to-gray-800 sm:px-2 md:px-2",
-    selected: "rounded-md bg-gray-50 bg-gradient-to-br from-gray-50 to-gray-50 px-2 py-2 shadow-md transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:from-gray-900 dark:to-gray-800 dark:hover:to-gray-800 sm:px-2 md:px-2"
+    default:
+      'rounded-md px-2 py-2 shadow-sm transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-1000 dark:hover:to-gray-800 sm:px-2 md:px-2',
+    selected:
+      'rounded-md bg-gray-50 bg-gradient-to-br from-gray-50 to-gray-50 px-2 py-2 shadow-md transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:from-gray-900 dark:to-gray-800 dark:hover:to-gray-800 sm:px-2 md:px-2',
   }
 
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = data.filter((postData) => {
     const tagNode = postData.node.tags
-    if(tagNode != null){
+    if (tagNode != null) {
       return tagNode.includes(searchValue)
-    }else{
+    } else {
       return searchValue === NOLABEL
     }
   })
@@ -54,8 +56,8 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
       : filteredBlogPosts
 
   // 첫 호출에는 첫번째 태그가 선택.
-  if(searchValue === ''){
-    setSearchValue(tags[0]);
+  if (searchValue === '') {
+    setSearchValue(tags[0])
   }
 
   return (
@@ -68,15 +70,17 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
       {!tags.length && (
         <div className="my-8 text-2xl opacity-80">No Tags found.</div>
       )}
-      <div className="grid gap-1 grid-cols-5 grid-rows-3 border-b-[3px]">
+      <div className="grid grid-cols-5 grid-rows-3 gap-1 border-b-[3px]">
         {tags.map((tag) => {
           return (
             <button
-                key={tag}
-                className={tag === searchValue ? tagStyle.selected : tagStyle.default}
-                onClick={() => setSearchValue(tag)}
-              >
-                {tag}
+              key={tag}
+              className={
+                tag === searchValue ? tagStyle.selected : tagStyle.default
+              }
+              onClick={() => setSearchValue(tag)}
+            >
+              {tag}
             </button>
           )
         })}
