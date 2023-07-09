@@ -70,7 +70,7 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
       {!tags.length && (
         <div className="my-8 text-2xl opacity-80">No Tags found.</div>
       )}
-      <div className="grid grid-cols-5 grid-rows-3 gap-1 border-b-[3px]">
+      <div className="grid grid-cols-4 grid-rows-3 gap-1 text-xs border-b-[3px]">
         {tags.map((tag) => {
           return (
             <button
