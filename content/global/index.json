@@ -15,6 +15,10 @@
       {
         "href": "posts",
         "label": "Posts"
+      },
+      {
+        "href": "tags",
+        "label": "Tags"
       }
     ]
   },
