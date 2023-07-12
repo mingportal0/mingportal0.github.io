@@ -19,6 +19,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { Prism } from 'tinacms/dist/rich-text/prism'
 import type { TinaMarkdownContent, Components } from 'tinacms/dist/rich-text'
 import Utterances from '../comment/Utterances'
+import Link from 'next/link'
 
 const components: Components<{
   BlockQuote: {
@@ -131,6 +132,8 @@ export const Post = (props) => {
     formattedDate = format(date, 'MMM dd, yyyy')
   }
 
+  const tags = props.tags
+
   return (
     <Section className="flex-1">
       <Container width="small" className={`flex-1 pb-2`} size="large">
@@ -146,7 +149,7 @@ export const Post = (props) => {
         </h2>
         <div
           data-tinafield="author"
-          className="mb-16 flex items-center justify-center"
+          className="mb-8 flex items-center justify-center"
         >
           {props.author && (
             <>
@@ -171,6 +174,24 @@ export const Post = (props) => {
           >
             {formattedDate}
           </p>
+        </div>
+        <div
+          data-tinafield="tags"
+          className="mb-16 flex items-center justify-center"
+        >
+          {props.tags &&
+            props.tags.map((tag) => {
+              return (
+                <Link key={tag} href={`/tags?tag=` + tag}>
+                  <a
+                    key={tag}
+                    className="m-1 rounded-md px-2 py-2 shadow-sm transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-1000 dark:hover:to-gray-800 sm:px-2 md:px-2"
+                  >
+                    {`#` + tag}
+                  </a>
+                </Link>
+              )
+            })}
         </div>
       </Container>
       {props.heroImg && (

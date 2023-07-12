@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { BsArrowRight } from 'react-icons/bs'
 import format from 'date-fns/format'
+import { useRouter } from 'next/router'
 
 export const Tags = ({ data, initialDisplayPosts = [], title }) => {
   const titleColorClasses = {
@@ -17,6 +18,32 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
     yellow: 'group-hover:text-yellow-500 dark:group-hover:text-yellow-300',
   }
   const NOLABEL = '미분류'
+  const tagStyle = {
+    default:
+      'rounded-md px-1 py-2 shadow-sm transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-1000 dark:hover:to-gray-800 sm:px-1 md:px-1',
+    selected:
+      'rounded-md bg-gray-50 bg-gradient-to-br from-gray-50 to-gray-50 px-1 py-2 shadow-md transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:from-gray-900 dark:to-gray-800 dark:hover:to-gray-800 sm:px-1 md:px-1',
+  }
+
+  const [searchValue, setSearchValue] = useState('')
+  const router = useRouter()
+
+  const clickTag = (tag) => {
+    router.push({ query: { tag } })
+    setSearchValue(tag)
+  }
+
+  React.useEffect(() => {
+    if (!router.isReady) return
+
+    // 첫 호출에는 querystring -> 첫번째 태그가 선택.
+    const { tag } = router.query
+    if (searchValue === '') {
+      const t = tag ? tag : tags[0]
+      setSearchValue(t)
+    }
+  }, [router.isReady])
+
   const tags = []
   data.map((tagData) => {
     const tagNode = tagData.node.tags
@@ -34,14 +61,6 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
   })
   tags.sort()
 
-  const tagStyle = {
-    default:
-      'rounded-md px-2 py-2 shadow-sm transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:bg-gray-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-1000 dark:hover:to-gray-800 sm:px-2 md:px-2',
-    selected:
-      'rounded-md bg-gray-50 bg-gradient-to-br from-gray-50 to-gray-50 px-2 py-2 shadow-md transition-all last:mb-0 hover:to-gray-50 hover:shadow-md dark:from-gray-900 dark:to-gray-800 dark:hover:to-gray-800 sm:px-2 md:px-2',
-  }
-
-  const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = data.filter((postData) => {
     const tagNode = postData.node.tags
     if (tagNode != null) {
@@ -50,15 +69,11 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
       return searchValue === NOLABEL
     }
   })
+
   const displayPosts =
     initialDisplayPosts.length > 0 && !searchValue
       ? initialDisplayPosts
       : filteredBlogPosts
-
-  // 첫 호출에는 첫번째 태그가 선택.
-  if (searchValue === '') {
-    setSearchValue(tags[0])
-  }
 
   return (
     <>
@@ -70,7 +85,7 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
       {!tags.length && (
         <div className="my-8 text-2xl opacity-80">No Tags found.</div>
       )}
-      <div className="grid grid-cols-4 grid-rows-3 gap-1 border-b-[3px] text-xs">
+      <div className="grid grid-cols-4 grid-rows-3 gap-1 text-xs">
         {tags.map((tag) => {
           return (
             <button
@@ -78,9 +93,9 @@ export const Tags = ({ data, initialDisplayPosts = [], title }) => {
               className={
                 tag === searchValue ? tagStyle.selected : tagStyle.default
               }
-              onClick={() => setSearchValue(tag)}
+              onClick={() => clickTag(tag)}
             >
-              {tag}
+              {`#` + tag}
             </button>
           )
         })}
